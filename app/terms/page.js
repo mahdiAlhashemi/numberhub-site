@@ -11,6 +11,7 @@ export default function Terms() {
   return (
     <LegalPage
       title="Terms of Service"
+      path="/terms/"
       intro={`These Terms govern your use of ${BRAND} ("the Service"), ${OPERATOR}. By accessing the Service or topping up your wallet, you agree to these Terms. If you do not agree, do not use the Service.`}
     >
       <h2>1. The Service</h2>

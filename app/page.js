@@ -4,6 +4,7 @@ import {
   ShieldCheck, Copy, Check, X, Sparkles, Lock, Menu,
 } from 'lucide-react';
 import { SiteFooter } from './_components/chrome';
+import { TRUST_POINTS } from './site-config';
 
 const BOT = 'https://t.me/TheNumberHubBot';
 
@@ -143,7 +144,7 @@ export default function Home() {
           </div>
         </header>
 
-        <main>
+        <main id="main">
           {/* hero */}
           <section className="relative mx-auto max-w-6xl px-5 pt-16 pb-14 grid lg:grid-cols-2 gap-12 items-center">
             <div className="reveal">
@@ -334,6 +335,29 @@ export default function Home() {
                   <p className="mt-3 text-sm text-[var(--color-mut)] leading-relaxed">{a}</p>
                 </details>
               ))}
+            </div>
+          </section>
+
+          {/* trust */}
+          <section id="trust" className="relative mx-auto max-w-6xl px-5 py-16">
+            <Eyebrow>Trust &amp; safety</Eyebrow>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">Built to be trusted</h2>
+            <p className="mt-2 max-w-2xl text-[var(--color-mut)]">No fine-print games. Here's exactly how we protect your money and your data.</p>
+            <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {TRUST_POINTS.map(([t, d]) => (
+                <div key={t} className="gborder rounded-xl bg-[var(--color-card)] p-6">
+                  <div className="grid place-items-center w-10 h-10 rounded-lg bg-ac/12 border border-ac/20 text-ac3"><ShieldCheck className="w-5 h-5" strokeWidth={1.9} /></div>
+                  <div className="mt-4 font-semibold text-white">{t}</div>
+                  <div className="mt-1 text-sm text-[var(--color-mut)] leading-relaxed">{d}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-mut)]">
+              <a href="/terms/" className="hover:text-white transition underline underline-offset-2">Terms</a>
+              <a href="/privacy/" className="hover:text-white transition underline underline-offset-2">Privacy</a>
+              <a href="/refund/" className="hover:text-white transition underline underline-offset-2">Refund Policy</a>
+              <a href="/acceptable-use/" className="hover:text-white transition underline underline-offset-2">Acceptable Use</a>
+              <a href="/contact/" className="hover:text-white transition underline underline-offset-2">Contact</a>
             </div>
           </section>
 

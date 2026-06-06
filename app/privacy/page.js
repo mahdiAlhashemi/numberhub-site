@@ -11,6 +11,7 @@ export default function Privacy() {
   return (
     <LegalPage
       title="Privacy Policy"
+      path="/privacy/"
       intro={`This policy explains what data ${BRAND} (${OPERATOR}) collects, why, how long we keep it, and your rights. We collect as little as possible to run the Service.`}
     >
       <h2>1. Who we are</h2>

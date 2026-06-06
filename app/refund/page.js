@@ -11,6 +11,7 @@ export default function Refund() {
   return (
     <LegalPage
       title="Refund & Cancellation Policy"
+      path="/refund/"
       intro={`${BRAND} uses a fair, product-specific charging model. This page explains exactly when you are charged, when you are not, and how cancellations and refunds work. Your balance is prepaid, spend-only credit.`}
     >
       <h2>1. OTP / verification numbers — charged only on delivery</h2>

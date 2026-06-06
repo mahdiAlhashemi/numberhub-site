@@ -11,6 +11,7 @@ export default function AcceptableUse() {
   return (
     <LegalPage
       title="Acceptable Use Policy"
+      path="/acceptable-use/"
       intro={`${BRAND} is intended for legitimate verification and connectivity needs. This policy lists what you must not do, and describes the anti-fraud and anti-money-laundering controls we operate. It forms part of our Terms of Service.`}
     >
       <h2>1. Prohibited uses</h2>

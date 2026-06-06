@@ -1,5 +1,30 @@
 import { Bot, MessageCircle, Megaphone, Mail, ArrowLeft, ArrowRight } from 'lucide-react';
-import { BOT, SUPPORT, CHANNEL, EMAIL, BRAND, PRODUCT_LINKS, LEGAL_LINKS, EFFECTIVE } from '../site-config';
+import { SITE, BOT, SUPPORT, CHANNEL, EMAIL, BRAND, PRODUCT_LINKS, LEGAL_LINKS, EFFECTIVE } from '../site-config';
+
+// Breadcrumb nav + BreadcrumbList JSON-LD. items: [['/', 'Home'], ['/terms/', 'Terms']]
+export function Breadcrumb({ items }) {
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: items.map(([href, name], i) => ({
+      '@type': 'ListItem', position: i + 1, name, item: `${SITE}${href}`,
+    })),
+  };
+  return (
+    <nav aria-label="Breadcrumb" className="text-xs text-mut">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <ol className="flex flex-wrap items-center gap-1.5">
+        {items.map(([href, name], i) => (
+          <li key={href + name} className="inline-flex items-center gap-1.5">
+            {i > 0 && <span className="opacity-50" aria-hidden="true">/</span>}
+            {i < items.length - 1
+              ? <a href={href} className="hover:text-white transition">{name}</a>
+              : <span className="text-ink">{name}</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
 
 export function Logo({ href = '/' }) {
   return (
@@ -73,12 +98,12 @@ export function SiteFooter() {
 }
 
 // Wrapper for long-form legal / policy pages.
-export function LegalPage({ title, intro, updated = EFFECTIVE, children }) {
+export function LegalPage({ title, path = '/', intro, updated = EFFECTIVE, children }) {
   return (
     <>
       <SubHeader />
-      <main className="mx-auto max-w-3xl px-5 pt-14 pb-20">
-        <a href="/" className="inline-flex items-center gap-1.5 text-sm text-mut hover:text-white transition"><ArrowLeft className="w-4 h-4" /> Back to home</a>
+      <main id="main" className="mx-auto max-w-3xl px-5 pt-14 pb-20">
+        <Breadcrumb items={[['/', 'Home'], [path, title]]} />
         <h1 className="mt-5 text-3xl sm:text-4xl font-semibold tracking-tight text-white">{title}</h1>
         <p className="mt-3 text-sm text-mut">Effective date: {updated}</p>
         {intro ? <p className="mt-4 text-mut leading-relaxed">{intro}</p> : null}

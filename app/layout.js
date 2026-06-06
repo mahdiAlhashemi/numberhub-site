@@ -1,6 +1,7 @@
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import CookieConsent from './_components/cookie-consent';
 
 const SITE = 'https://numberhub.io';
 const TITLE = 'NumberHub — Virtual Numbers for OTP Verification & Travel eSIM';
@@ -34,9 +35,11 @@ export const metadata = {
   twitter: { card: 'summary_large_image', title: TITLE, description: DESC, images: ['/og.png'] },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
+    shortcut: '/favicon.ico',
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
   manifest: '/manifest.webmanifest',
@@ -44,6 +47,7 @@ export const metadata = {
 
 export const viewport = {
   themeColor: '#000000',
+  colorScheme: 'dark',
   width: 'device-width',
   initialScale: 1,
 };
@@ -81,7 +85,11 @@ export default function RootLayout({ children }) {
           <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(o) }} />
         ))}
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-3 focus:left-3 focus:rounded-lg focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:text-sm focus:font-semibold">Skip to content</a>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }
