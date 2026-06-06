@@ -1,5 +1,5 @@
 import { SubHeader, SiteFooter } from '../_components/chrome';
-import { BRAND, OPERATOR, EMAIL, SUPPORT, BOT, CHANNEL } from '../site-config';
+import { BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT, BOT, CHANNEL } from '../site-config';
 import { MessageSquareText, CalendarClock, Signal, Wallet, ShieldCheck, ArrowRight, Mail, MessageCircle, Megaphone, Bot } from 'lucide-react';
 
 export const metadata = {
@@ -11,7 +11,7 @@ export const metadata = {
 const offerings = [
   [MessageSquareText, 'OTP / verification numbers', 'Temporary virtual numbers that receive one-time SMS codes for 800+ apps across 190+ countries. You are charged only when the code arrives.'],
   [CalendarClock, 'Number rentals', 'A dedicated number kept for a chosen period that receives all of its codes during that time.'],
-  [Signal, 'Travel eSIM data', 'Data-only eSIM profiles for 219 destinations, delivered instantly as a QR code — local, regional, and global plans.'],
+  [Signal, 'Travel eSIM data', 'Data-only eSIM profiles for 219 destinations, usually ready within seconds as a QR code — local, regional, and global plans.'],
 ];
 
 export default function About() {
@@ -53,6 +53,9 @@ export default function About() {
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Operating responsibly</h2>
         <p className="mt-4 text-mut leading-relaxed">
           We keep data collection minimal, delete verification codes after delivery, and operate anti-fraud and AML risk controls. The Service is for legitimate use only — fraud, spam, and unlawful activity are prohibited. Please read our <a href="/terms/" className="text-ac underline underline-offset-2">Terms</a>, <a href="/privacy/" className="text-ac underline underline-offset-2">Privacy Policy</a>, and <a href="/acceptable-use/" className="text-ac underline underline-offset-2">Acceptable Use Policy</a>.
+        </p>
+        <p className="mt-4 text-mut leading-relaxed">
+          {BRAND} is {OPERATOR}, based in <strong className="text-white">{JURISDICTION}</strong>, whose law governs our Terms. For compliance, privacy, or legal enquiries, contact <a href={`mailto:${EMAIL}`} className="text-ac underline underline-offset-2">{EMAIL}</a>.
         </p>
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Contact &amp; support</h2>

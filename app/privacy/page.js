@@ -60,7 +60,7 @@ export default function Privacy() {
       <p>Subject to applicable law (including the GDPR where it applies), you may request access to, correction of, deletion of, or a copy of your data, and may object to or restrict certain processing. To exercise these rights, contact <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or Telegram <a href={SUPPORT}>@revuas</a>. You may also complain to your local data-protection authority.</p>
 
       <h2>9. Security</h2>
-      <p>We apply reasonable technical and organisational measures to protect data, including transport encryption and restricted access. No method of transmission or storage is perfectly secure.</p>
+      <p>We apply reasonable technical and organisational measures to protect data, including encryption in transit, access restricted to those with a legitimate need, and periodic security reviews. No method of transmission or storage is perfectly secure.</p>
 
       <h2>10. Children</h2>
       <p>The Service is not directed to anyone under 18, and we do not knowingly process their data.</p>

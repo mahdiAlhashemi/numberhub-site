@@ -31,12 +31,13 @@ export default function Terms() {
         <li>Top-ups are made in <strong>USDT</strong> (a US-dollar-pegged stablecoin) through our third-party payment processor. Cryptocurrency transactions are <strong>final and non-reversible</strong> once confirmed on-chain; we cannot reverse a blockchain payment.</li>
         <li>You are responsible for sending the correct amount, asset, and network. Funds sent to the wrong address or on an unsupported network may be unrecoverable.</li>
         <li>Prices are shown before each purchase and may change with provider costs and demand.</li>
+        <li>Prices are shown in USD-equivalent and charged in USDT. Where we are required to collect sales tax, VAT, or GST, it may be added; the payment is treated as final settlement of the full amount, including any such tax.</li>
       </ul>
 
       <h2>4. How charges work</h2>
       <p>Charging depends on the product, and is described in full in our <a href="/refund/">Refund &amp; Cancellation Policy</a>:</p>
       <ul>
-        <li><strong>OTP numbers</strong> — the price is <strong>held</strong> when you order and <strong>charged only when a verification code is delivered</strong>. If no code arrives within the activation window, the hold is released and you are not charged.</li>
+        <li><strong>OTP numbers</strong> — the price is <strong>held</strong> when you order and <strong>charged only when a verification code is delivered</strong>. If no code arrives within the 20-minute activation window, the hold is released and you are not charged.</li>
         <li><strong>Rentals and eSIM</strong> — paid <strong>upfront</strong> for the selected period or plan, subject to the cancellation windows in the Refund Policy.</li>
       </ul>
 
@@ -62,7 +63,7 @@ export default function Terms() {
       <p>We may update these Terms. Material changes take effect when posted on this page, with an updated effective date. Continued use after changes constitutes acceptance.</p>
 
       <h2>12. Governing law &amp; disputes</h2>
-      <p>These Terms are governed by the laws of <strong>{JURISDICTION}</strong>, without regard to conflict-of-law rules. You agree to resolve disputes first by contacting us; unresolved disputes are subject to the courts of {JURISDICTION}, unless mandatory consumer-protection law grants you other rights.</p>
+      <p>These Terms are governed by the laws of <strong>{JURISDICTION}</strong>, without regard to conflict-of-law rules. To resolve a dispute, first contact us at <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or Telegram <a href={SUPPORT}>@revuas</a> with your order details; we aim to respond within 7 days. If a dispute is not resolved within 30 days, it is subject to the courts of {JURISDICTION}, unless mandatory consumer-protection law grants you other rights. Any refund is credited to your wallet balance only and cannot be reversed on-chain due to the finality of cryptocurrency payments.</p>
 
       <h2>13. Contact</h2>
       <p>Questions about these Terms: <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or Telegram <a href={SUPPORT}>@revuas</a>.</p>

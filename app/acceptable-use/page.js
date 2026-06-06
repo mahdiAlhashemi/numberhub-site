@@ -35,6 +35,7 @@ export default function AcceptableUse() {
         <li>Suspension or termination of accounts that breach this policy, with forfeiture of any balance directly tied to the abuse;</li>
         <li>Cooperation with lawful requests from competent authorities and payment partners.</li>
       </ul>
+      <p>Where we request information from you, you must provide it within a reasonable period we specify (for example, 14 days), or your account and any pending orders may be suspended.</p>
       <p>"No KYC for ordinary use" means we do not demand identity documents for routine, low-value verification. It does <strong>not</strong> mean the Service may be used to evade AML obligations — we reserve the right to apply enhanced checks or decline service where risk warrants.</p>
 
       <h2>3. Enforcement</h2>

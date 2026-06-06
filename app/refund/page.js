@@ -17,7 +17,7 @@ export default function Refund() {
       <ul>
         <li>When you order an OTP number, its price is <strong>held</strong> against your balance — not charged.</li>
         <li>You are <strong>charged only when a verification code is actually delivered</strong> to you.</li>
-        <li>If <strong>no code arrives</strong> within the activation window, or the order is cancelled or expires unfilled, the hold is <strong>released back to your balance automatically</strong> and you pay nothing.</li>
+        <li>If <strong>no code arrives</strong> within the 20-minute activation window, or the order is cancelled or expires unfilled, the hold is <strong>released back to your balance automatically</strong> and you pay nothing.</li>
         <li><strong>Cancellation:</strong> an activation can be cancelled, releasing the hold. To match upstream provider rules, cancellation is only permitted after a short initial period (about 2 minutes) once a number has been issued; an order still waiting for a number can be cancelled immediately at no cost.</li>
         <li>If a number does not work, you can request a replacement or cancel for a release of the hold — you are never charged for a code you did not receive.</li>
       </ul>
@@ -29,11 +29,12 @@ export default function Refund() {
         <li>After that window, the rental can be ended but is <strong>not refundable</strong>, as the dedicated number has been reserved for your period.</li>
       </ul>
 
-      <h2>3. eSIM data plans — upfront, pre-activation</h2>
+      <h2>3. eSIM data plans — charged when the order is accepted</h2>
       <ul>
-        <li>eSIM plans are <strong>paid upfront</strong> for the selected plan.</li>
-        <li>Because an eSIM profile is a provisioned digital good delivered as a QR code, it is generally <strong>non-refundable once the profile has been issued or installed/activated</strong>.</li>
-        <li>If an order <strong>fails before a profile is issued</strong> (for example, the provider cannot fulfil it), the hold is released / the charge is reversed to your wallet balance and you are not charged.</li>
+        <li>eSIM plans are <strong>paid upfront</strong>. The charge is finalised once the provider <strong>accepts your order</strong>, and is <strong>final once accepted</strong>, even if delivery of the QR profile is briefly delayed.</li>
+        <li>You are <strong>only not charged</strong> (the hold is released) if the order <strong>cannot be placed with the provider at all</strong>.</li>
+        <li>If a QR profile does not appear immediately, it is delivered automatically once provisioning completes. In the rare case it never arrives, contact support and we will make it right.</li>
+        <li>Because an eSIM is a provisioned digital good, an accepted or issued plan is <strong>non-refundable</strong>.</li>
       </ul>
 
       <h2>4. Form of refunds</h2>
