@@ -1,4 +1,7 @@
 import './globals.css';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
 
 const SITE = 'https://numberhub.io';
 const TITLE = 'NumberHub — Virtual Numbers for OTP Verification & Travel eSIM';
@@ -29,9 +32,7 @@ export const metadata = {
     type: 'website', url: SITE, siteName: 'NumberHub', title: TITLE, description: DESC, locale: 'en_US',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'NumberHub — Virtual Numbers & eSIM' }],
   },
-  twitter: {
-    card: 'summary_large_image', title: TITLE, description: DESC, images: ['/og.png'],
-  },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESC, images: ['/og.png'] },
   icons: {
     icon: [
       { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
@@ -43,41 +44,39 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#0a0c22',
+  themeColor: '#07081a',
   width: 'device-width',
   initialScale: 1,
 };
 
-const orgLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'NumberHub',
-  url: SITE,
-  logo: `${SITE}/icon-512.png`,
-  description: DESC,
-  sameAs: ['https://t.me/TheNumberHubBot', 'https://t.me/numberhubofficial'],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'customer support',
-    url: 'https://t.me/revuas',
-    availableLanguage: ['en'],
+const ld = [
+  {
+    '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}/#org`,
+    name: 'NumberHub', url: SITE, logo: `${SITE}/icon-512.png`, description: DESC,
+    sameAs: ['https://t.me/TheNumberHubBot', 'https://t.me/numberhubofficial'],
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: 'https://t.me/revuas', availableLanguage: ['en'] },
   },
-};
-
-const siteLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'NumberHub',
-  url: SITE,
-  description: DESC,
-};
+  {
+    '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#website`,
+    name: 'NumberHub', url: SITE, description: DESC, publisher: { '@id': `${SITE}/#org` }, inLanguage: 'en',
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE}/#service`,
+    name: 'Virtual numbers & travel eSIM', serviceType: 'OTP / SMS verification numbers and travel data eSIM',
+    provider: { '@id': `${SITE}/#org` }, areaServed: 'Worldwide',
+    offers: { '@type': 'Offer', priceCurrency: 'USD', price: '0.20', availability: 'https://schema.org/InStock', url: 'https://t.me/TheNumberHubBot' },
+  },
+];
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }} />
+        <link rel="preconnect" href="https://t.me" />
+        <link rel="dns-prefetch" href="https://t.me" />
+        {ld.map((o, i) => (
+          <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(o) }} />
+        ))}
       </head>
       <body className="antialiased">{children}</body>
     </html>
