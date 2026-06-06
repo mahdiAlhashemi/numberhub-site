@@ -1,7 +1,6 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 
 const SITE = 'https://numberhub.io';
 const TITLE = 'NumberHub — Virtual Numbers for OTP Verification & Travel eSIM';
@@ -44,7 +43,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#07081a',
+  themeColor: '#000000',
   width: 'device-width',
   initialScale: 1,
 };
@@ -70,7 +69,7 @@ const ld = [
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://t.me" />
         <link rel="dns-prefetch" href="https://t.me" />
