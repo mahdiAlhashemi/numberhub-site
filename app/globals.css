@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0c22;
+  --color-ink: #e8ecf6;
+  --color-mut: #98a4c4;
+  --color-ac: #4f8cff;     /* logo blue */
+  --color-ac2: #9b6bff;    /* logo violet */
+  --color-ac3: #22d3ee;    /* logo cyan */
+  --color-card: #16143a;
+  --color-bd: #2a2456;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: radial-gradient(1200px 700px at 50% -10%, #16123e 0%, #0a0c22 55%);
+  color: var(--color-ink);
+}
+
+/* soft neon gradient blobs */
+.blob { filter: blur(72px); opacity: .5; }
