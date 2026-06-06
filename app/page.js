@@ -1,13 +1,11 @@
 import {
   MessageSquareText, CalendarClock, Signal, Globe, Wallet, MousePointerClick,
   Zap, CheckCircle2, RotateCcw, RefreshCw, Bitcoin, Plus, ArrowRight, Send,
-  Bot, MessageCircle, Megaphone, ShieldCheck, Copy, Check, X, Sparkles, Lock, Mail,
+  ShieldCheck, Copy, Check, X, Sparkles, Lock, Menu,
 } from 'lucide-react';
+import { SiteFooter } from './_components/chrome';
 
 const BOT = 'https://t.me/TheNumberHubBot';
-const SUPPORT = 'https://t.me/revuas';
-const CHANNEL = 'https://t.me/numberhubofficial';
-const EMAIL = 'info@numberhub.io';
 
 const services = ['Telegram', 'WhatsApp', 'Google', 'OpenAI', 'Instagram', 'Facebook', 'X / Twitter', 'TikTok', 'Discord', 'Tinder', 'Steam', 'PayPal', 'Amazon', 'Microsoft', 'Signal', 'Uber', 'LinkedIn', 'Apple'];
 
@@ -119,16 +117,29 @@ export default function Home() {
         <header className="sticky top-0 z-20 border-b border-[var(--color-bd)] bg-black/70 backdrop-blur-xl">
           <div className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
             <Logo />
-            <nav className="hidden md:flex items-center gap-8 text-sm text-[var(--color-mut)]" aria-label="Primary">
-              <a href="#products" className="hover:text-white transition">Products</a>
-              <a href="#pricing" className="hover:text-white transition">Pricing</a>
-              <a href="#how" className="hover:text-white transition">How it works</a>
-              <a href="#compare" className="hover:text-white transition">Why us</a>
-              <a href="#faq" className="hover:text-white transition">FAQ</a>
-            </nav>
-            <a href={BOT} className="btn-brand inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm">
-              Open the bot <ArrowRight className="w-4 h-4" />
-            </a>
+            <div className="flex items-center gap-2.5">
+              <nav className="hidden md:flex items-center gap-8 text-sm text-[var(--color-mut)] mr-2" aria-label="Primary">
+                <a href="#products" className="hover:text-white transition">Products</a>
+                <a href="#pricing" className="hover:text-white transition">Pricing</a>
+                <a href="#how" className="hover:text-white transition">How it works</a>
+                <a href="#compare" className="hover:text-white transition">Why us</a>
+                <a href="#faq" className="hover:text-white transition">FAQ</a>
+              </nav>
+              <a href={BOT} className="btn-brand inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm">
+                Open the bot <ArrowRight className="w-4 h-4" />
+              </a>
+              {/* mobile menu — CSS-only, no JS */}
+              <details className="md:hidden relative">
+                <summary aria-label="Open menu" className="list-none cursor-pointer grid place-items-center w-9 h-9 rounded-lg border border-[var(--color-bd)] text-[var(--color-mut)] hover:text-white transition">
+                  <Menu className="w-5 h-5" />
+                </summary>
+                <div className="absolute right-0 mt-2 w-56 rounded-xl border border-[var(--color-bd)] bg-[var(--color-card)] p-2 shadow-2xl">
+                  {[['#products', 'Products'], ['#pricing', 'Pricing'], ['#how', 'How it works'], ['#compare', 'Why us'], ['#faq', 'FAQ'], ['/about/', 'About']].map(([href, label]) => (
+                    <a key={label} href={href} className="block px-3 py-2 rounded-lg text-sm text-[var(--color-mut)] hover:text-white hover:bg-white/5 transition">{label}</a>
+                  ))}
+                </div>
+              </details>
+            </div>
           </div>
         </header>
 
@@ -341,38 +352,7 @@ export default function Home() {
           </section>
         </main>
 
-        {/* footer */}
-        <footer className="relative border-t border-[var(--color-bd)] bg-black">
-          <div className="mx-auto max-w-6xl px-5 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="lg:col-span-2">
-              <Logo />
-              <p className="mt-4 max-w-sm text-sm text-[var(--color-mut)] leading-relaxed">Virtual numbers for OTP verification, number rentals, and travel eSIM data — operated via Telegram, paid in crypto.</p>
-            </div>
-            <div>
-              <div className="text-sm font-semibold mb-3 text-white">Product</div>
-              <ul className="space-y-2 text-sm text-[var(--color-mut)]">
-                <li><a href="#products" className="hover:text-white transition">OTP numbers</a></li>
-                <li><a href="#products" className="hover:text-white transition">Number rentals</a></li>
-                <li><a href="#products" className="hover:text-white transition">eSIM data</a></li>
-                <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="text-sm font-semibold mb-3 text-white">Connect</div>
-              <ul className="space-y-2 text-sm text-[var(--color-mut)]">
-                <li><a href={BOT} className="inline-flex items-center gap-2 hover:text-white transition"><Bot className="w-4 h-4" /> @TheNumberHubBot</a></li>
-                <li><a href={SUPPORT} className="inline-flex items-center gap-2 hover:text-white transition"><MessageCircle className="w-4 h-4" /> Support @revuas</a></li>
-                <li><a href={CHANNEL} className="inline-flex items-center gap-2 hover:text-white transition"><Megaphone className="w-4 h-4" /> @numberhubofficial</a></li>
-                <li><a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 hover:text-white transition"><Mail className="w-4 h-4" /> {EMAIL}</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-[var(--color-bd)]">
-            <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-[var(--color-mut)]">
-              © 2026 NumberHub — Virtual Numbers &amp; eSIM. Payments processed in USDT; balance is spend-only credit. OTP numbers are charged only when a code is delivered — no code, no charge.
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );
