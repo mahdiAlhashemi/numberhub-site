@@ -78,8 +78,8 @@ const productsLd = {
   })),
 };
 
-// brand gradient (logo blue -> violet -> cyan) reused for headline highlight, wordmark, stats
-const BRAND_TEXT = 'bg-gradient-to-r from-ac via-ac2 to-ac3 bg-clip-text text-transparent';
+// SOLID brand color for text (no gradient on text — only on tiles/buttons/glows)
+const BRAND_TEXT = 'text-ac';
 const BRAND_TILE = 'bg-gradient-to-br from-ac to-ac2';
 
 function Logo() {
