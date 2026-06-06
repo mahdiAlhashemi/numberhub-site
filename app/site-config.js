@@ -13,7 +13,7 @@ export const JURISDICTION = '[Your country]';
 export const EFFECTIVE = '6 June 2026';
 
 export const PRODUCT_LINKS = [
-  ['/#products', 'OTP numbers'],
+  ['/numbers/', 'OTP numbers'],
   ['/#products', 'Number rentals'],
   ['/#products', 'eSIM data'],
   ['/pricing/', 'Pricing'],
