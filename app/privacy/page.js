@@ -45,7 +45,7 @@ export default function Privacy() {
       <ul>
         <li><strong>Upstream number/SMS providers</strong> — to issue numbers and relay verification codes.</li>
         <li><strong>eSIM provider</strong> — to issue and manage eSIM profiles.</li>
-        <li><strong>Payment processor</strong> — to process USDT top-ups; on-chain transactions are inherently public on the blockchain.</li>
+        <li><strong>Payment processor</strong> — to process crypto top-ups; on-chain transactions are inherently public on the blockchain.</li>
         <li><strong>Telegram</strong> — the messaging platform through which the Service operates, under Telegram's own privacy policy.</li>
         <li><strong>Hosting/infrastructure</strong> — the server provider that runs the Service.</li>
       </ul>

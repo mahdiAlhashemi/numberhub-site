@@ -5,7 +5,7 @@ import { GeistMono } from 'geist/font/mono';
 const SITE = 'https://numberhub.io';
 const TITLE = 'NumberHub — Virtual Numbers for OTP Verification & Travel eSIM';
 const DESC =
-  'Buy virtual phone numbers to receive SMS/OTP verification codes for 800+ apps across 190+ countries, rent numbers, and get travel eSIM data for 219 destinations. Pay in USDT — charged only when your code arrives.';
+  'Buy virtual phone numbers to receive SMS/OTP verification codes for 800+ apps across 190+ countries, rent numbers, and get travel eSIM data for 219 destinations. Charged only when your code arrives.';
 
 export const metadata = {
   metadataBase: new URL(SITE),
@@ -16,7 +16,7 @@ export const metadata = {
   keywords: [
     'virtual phone number', 'OTP verification', 'receive SMS online', 'temporary phone number',
     'SMS verification service', 'buy virtual number', 'Telegram number', 'WhatsApp OTP',
-    'travel eSIM', 'eSIM data plan', 'crypto payment', 'USDT', 'one time password', 'number rental',
+    'travel eSIM', 'eSIM data plan', 'crypto payment', 'one time password', 'number rental',
   ],
   authors: [{ name: 'NumberHub' }],
   creator: 'NumberHub',

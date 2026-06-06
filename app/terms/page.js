@@ -3,7 +3,7 @@ import { BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT } from '../site-config';
 
 export const metadata = {
   title: 'Terms of Service',
-  description: 'The terms governing use of NumberHub — virtual numbers for OTP verification, number rentals, and travel eSIM data, paid in USDT.',
+  description: 'The terms governing use of NumberHub — virtual numbers for OTP verification, number rentals, and travel eSIM data.',
   alternates: { canonical: '/terms/' },
 };
 
@@ -28,10 +28,10 @@ export default function Terms() {
       <h2>3. Wallet, top-ups, and payment</h2>
       <ul>
         <li>The Service uses a prepaid, in-bot <strong>wallet</strong>. Your balance is <strong>spend-only credit</strong> usable solely to purchase products inside the Service. It is not a bank account, e-money, or investment, and it pays no interest.</li>
-        <li>Top-ups are made in <strong>USDT</strong> (a US-dollar-pegged stablecoin) through our third-party payment processor. Cryptocurrency transactions are <strong>final and non-reversible</strong> once confirmed on-chain; we cannot reverse a blockchain payment.</li>
+        <li>Top-ups are made in <strong>cryptocurrency</strong> through our third-party payment processor. Crypto transactions are <strong>final and non-reversible</strong> once confirmed on-chain; we cannot reverse a blockchain payment.</li>
         <li>You are responsible for sending the correct amount, asset, and network. Funds sent to the wrong address or on an unsupported network may be unrecoverable.</li>
         <li>Prices are shown before each purchase and may change with provider costs and demand.</li>
-        <li>Prices are shown in USD-equivalent and charged in USDT. Where we are required to collect sales tax, VAT, or GST, it may be added; the payment is treated as final settlement of the full amount, including any such tax.</li>
+        <li>Prices are shown in USD-equivalent and settled in cryptocurrency. Where we are required to collect sales tax, VAT, or GST, it may be added; the payment is treated as final settlement of the full amount, including any such tax.</li>
       </ul>
 
       <h2>4. How charges work</h2>

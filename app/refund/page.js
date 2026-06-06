@@ -11,7 +11,7 @@ export default function Refund() {
   return (
     <LegalPage
       title="Refund & Cancellation Policy"
-      intro={`${BRAND} uses a fair, product-specific charging model. This page explains exactly when you are charged, when you are not, and how cancellations and refunds work. Your balance is prepaid spend-only credit topped up in USDT.`}
+      intro={`${BRAND} uses a fair, product-specific charging model. This page explains exactly when you are charged, when you are not, and how cancellations and refunds work. Your balance is prepaid, spend-only credit.`}
     >
       <h2>1. OTP / verification numbers — charged only on delivery</h2>
       <ul>
@@ -38,7 +38,7 @@ export default function Refund() {
       </ul>
 
       <h2>4. Form of refunds</h2>
-      <p>Refunds and releases are credited to your in-bot <strong>wallet balance</strong> as spend-only credit. Because top-ups are made with USDT and on-chain cryptocurrency transactions are final and non-reversible, we do not refund to the originating blockchain wallet.</p>
+      <p>Refunds and releases are credited to your in-bot <strong>wallet balance</strong> as spend-only credit. Because top-ups are made with cryptocurrency and on-chain transactions are final and non-reversible, we do not refund to the originating blockchain wallet.</p>
 
       <h2>5. Things outside a refund</h2>
       <ul>

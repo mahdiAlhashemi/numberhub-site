@@ -4,7 +4,7 @@ import { MessageSquareText, CalendarClock, Signal, Wallet, ShieldCheck, ArrowRig
 
 export const metadata = {
   title: 'About',
-  description: 'About NumberHub — what we sell, how the in-bot USDT wallet works, and how to reach us. A live service for virtual OTP numbers, rentals, and travel eSIM.',
+  description: 'About NumberHub — what we sell, how the in-bot wallet works, and how to reach us. A live service for virtual OTP numbers, rentals, and travel eSIM.',
   alternates: { canonical: '/about/' },
 };
 
@@ -22,7 +22,7 @@ export default function About() {
         <div className="text-xs font-medium uppercase tracking-[0.16em] text-mut">About</div>
         <h1 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">A live service for verification numbers &amp; travel data</h1>
         <p className="mt-4 max-w-2xl text-lg text-mut leading-relaxed">
-          {BRAND} is {OPERATOR}. We make online verification and travel connectivity simple: get a virtual number to receive an SMS code, rent a number for longer, or grab a travel eSIM — all from one prepaid wallet inside Telegram, paid in USDT, with a fair "pay only when it works" model for OTP.
+          {BRAND} is {OPERATOR}. We make online verification and travel connectivity simple: get a virtual number to receive an SMS code, rent a number for longer, or grab a travel eSIM — all from one prepaid wallet inside Telegram, with a fair "pay only when it works" model for OTP.
         </p>
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">What we offer</h2>
@@ -40,8 +40,8 @@ export default function About() {
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="gborder rounded-2xl bg-card p-6">
             <Wallet className="w-6 h-6 text-ac" strokeWidth={1.9} />
-            <h3 className="mt-3 font-semibold text-white">Prepaid USDT wallet</h3>
-            <p className="mt-1.5 text-sm text-mut leading-relaxed">You top up an in-bot wallet with USDT, a US-dollar-pegged stablecoin, through our payment processor. Your balance is spend-only credit used to buy products inside the bot. Crypto top-ups are final and non-reversible once confirmed on-chain.</p>
+            <h3 className="mt-3 font-semibold text-white">Prepaid wallet</h3>
+            <p className="mt-1.5 text-sm text-mut leading-relaxed">You top up an in-bot wallet through our payment processor, and your balance is spend-only credit used to buy products inside the bot. Top-ups are made in cryptocurrency and are final and non-reversible once confirmed on-chain.</p>
           </div>
           <div className="gborder rounded-2xl bg-card p-6">
             <ShieldCheck className="w-6 h-6 text-ac3" strokeWidth={1.9} />

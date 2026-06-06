@@ -21,7 +21,7 @@ const products = [
 ];
 
 const steps = [
-  [Wallet, 'Top up', 'Fund your wallet with USDT in seconds.'],
+  [Wallet, 'Top up', 'Fund your wallet in seconds.'],
   [MousePointerClick, 'Choose', 'Pick a service + country, or an eSIM destination.'],
   [Zap, 'Receive', 'Get your number or eSIM QR instantly.'],
   [CheckCircle2, 'Verify', 'The SMS code is delivered to you automatically.'],
@@ -40,7 +40,7 @@ const features = [
   [CheckCircle2, 'Pay only when it works', 'For OTP numbers you are charged only when the verification code actually arrives.'],
   [RotateCcw, 'Automatic refund', 'No code, no charge — held funds are released instantly back to your balance.'],
   [Zap, 'Instant delivery', 'Numbers and eSIM QR codes are issued in seconds, 24/7.'],
-  [Bitcoin, 'Crypto payments', 'Top up in USDT — no card, no bank, no chargebacks.'],
+  [Bitcoin, 'Crypto payments', 'Top up your wallet — no card, no bank, no chargebacks.'],
   [Globe, 'Global coverage', '800+ services, 190+ countries, 219 eSIM destinations.'],
   [RefreshCw, 'Replace anytime', 'Swap a non-working number for a fresh one in one tap.'],
 ];
@@ -48,7 +48,7 @@ const features = [
 const compare = [
   ['Charged only when the code arrives', true, false],
   ['Automatic refund if no code', true, false],
-  ['Crypto / USDT payments', true, 'sometimes'],
+  ['Crypto payments', true, 'sometimes'],
   ['Travel eSIM data included', true, false],
   ['800+ services · 190+ countries', true, 'varies'],
   ['Replace a number instantly', true, false],
@@ -57,7 +57,7 @@ const compare = [
 
 const faqs = [
   ['When am I charged for a number?', 'For OTP numbers, the price is held when you buy and charged only when a verification code is delivered. If no code arrives, the hold is released and you pay nothing.'],
-  ['How do I pay?', 'You top up your in-bot wallet with USDT. Your balance is spend-only credit used to buy numbers, rentals and eSIMs.'],
+  ['How do I pay?', 'You top up your in-bot wallet, and your balance is spend-only credit used to buy numbers, rentals and eSIMs.'],
   ['Which apps are supported?', 'Over 800 services including Telegram, WhatsApp, Google, OpenAI, Instagram, Facebook, Tinder and many more, across 190+ countries.'],
   ['What is the eSIM product?', 'A data-only travel eSIM delivered instantly as a QR code for 219 destinations — choose a local, regional or global plan and scan to install.'],
   ['Do you keep my data?', 'No KYC, no accounts of yours, no SMS content retained long-term. You interact entirely through Telegram and pay in crypto.'],
@@ -165,7 +165,7 @@ export default function Home() {
                 <a href="#pricing" className="btn-ghost inline-flex items-center rounded-lg px-6 py-3 text-[15px] font-semibold">View pricing</a>
               </div>
               <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-mut)]">
-                {[[Lock, 'No KYC'], [Zap, 'Instant'], [RotateCcw, 'Auto-refund'], [Bitcoin, 'USDT']].map(([I, t]) => (
+                {[[Lock, 'No KYC'], [Zap, 'Instant'], [RotateCcw, 'Auto-refund'], [Bitcoin, 'Crypto']].map(([I, t]) => (
                   <li key={t} className="inline-flex items-center gap-1.5"><I className="w-4 h-4 text-ac" strokeWidth={1.75} /> {t}</li>
                 ))}
               </ul>

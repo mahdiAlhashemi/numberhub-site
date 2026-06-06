@@ -35,7 +35,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Logo />
-          <p className="mt-4 max-w-sm text-sm text-mut leading-relaxed">Virtual numbers for OTP verification, number rentals, and travel eSIM data — operated via Telegram, paid in USDT.</p>
+          <p className="mt-4 max-w-sm text-sm text-mut leading-relaxed">Virtual numbers for OTP verification, number rentals, and travel eSIM data — operated via Telegram.</p>
         </div>
         <div>
           <div className="text-sm font-semibold mb-3 text-white">Product</div>
@@ -65,7 +65,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-bd">
         <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-mut">
-          © 2026 NumberHub — Virtual Numbers &amp; eSIM. Balance is spend-only credit; payments are made in USDT. OTP numbers are charged only when a code is delivered — no code, no charge.
+          © 2026 NumberHub — Virtual Numbers &amp; eSIM. Balance is spend-only credit. OTP numbers are charged only when a code is delivered — no code, no charge.
         </div>
       </div>
     </footer>
