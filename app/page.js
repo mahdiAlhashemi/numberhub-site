@@ -23,7 +23,7 @@ const products = [
 ];
 
 const steps = [
-  [Wallet, 'Top up', 'Fund your wallet with crypto (USDT) in seconds.'],
+  [Wallet, 'Top up', 'Fund your wallet with USDT in seconds.'],
   [MousePointerClick, 'Choose', 'Pick a service + country, or an eSIM destination.'],
   [Zap, 'Receive', 'Get your number or eSIM QR instantly.'],
   [CheckCircle2, 'Verify', 'The SMS code is delivered to you automatically.'],
@@ -59,7 +59,7 @@ const compare = [
 
 const faqs = [
   ['When am I charged for a number?', 'For OTP numbers, the price is held when you buy and charged only when a verification code is delivered. If no code arrives, the hold is released and you pay nothing.'],
-  ['How do I pay?', 'You top up your in-bot wallet with cryptocurrency (USDT). Your balance is spend-only credit used to buy numbers, rentals and eSIMs.'],
+  ['How do I pay?', 'You top up your in-bot wallet with USDT. Your balance is spend-only credit used to buy numbers, rentals and eSIMs.'],
   ['Which apps are supported?', 'Over 800 services including Telegram, WhatsApp, Google, OpenAI, Instagram, Facebook, Tinder and many more, across 190+ countries.'],
   ['What is the eSIM product?', 'A data-only travel eSIM delivered instantly as a QR code for 219 destinations — choose a local, regional or global plan and scan to install.'],
   ['Do you keep my data?', 'No KYC, no accounts of yours, no SMS content retained long-term. You interact entirely through Telegram and pay in crypto.'],
@@ -369,7 +369,7 @@ export default function Home() {
           </div>
           <div className="border-t border-[var(--color-bd)]">
             <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-[var(--color-mut)]">
-              © 2026 NumberHub — Virtual Numbers &amp; eSIM. Payments processed in cryptocurrency (USDT); balance is spend-only credit. OTP numbers are charged only when a code is delivered — no code, no charge.
+              © 2026 NumberHub — Virtual Numbers &amp; eSIM. Payments processed in USDT; balance is spend-only credit. OTP numbers are charged only when a code is delivered — no code, no charge.
             </div>
           </div>
         </footer>
