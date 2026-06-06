@@ -12,8 +12,10 @@
   --color-mut2: #707070;      /* tertiary text */
   --color-bd: #1f1f1f;        /* hairline border */
   --color-bd2: #2e2e2e;       /* stronger border */
-  --color-ac: #ffffff;        /* primary action = white */
-  --color-blue: #0070f3;      /* restrained Vercel blue (links / focus) */
+  --color-ac: #4f8cff;        /* BRAND blue (logo) */
+  --color-ac2: #9b6bff;       /* BRAND violet (logo) */
+  --color-ac3: #22d3ee;       /* BRAND cyan (logo) */
+  --color-blue: #4f8cff;      /* brand blue alias (links / focus / status) */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
@@ -23,7 +25,11 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
   color: var(--color-ink);
-  background: #000000;
+  /* pure-black base + restrained brand glows at the top (logo blue + violet) */
+  background:
+    radial-gradient(820px 480px at 82% -10%, rgba(155,107,255,.16), transparent 60%),
+    radial-gradient(760px 460px at 8% -2%, rgba(79,140,255,.16), transparent 60%),
+    #000000;
   letter-spacing: -0.011em;
 }
 
@@ -37,19 +43,21 @@ body {
           mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 100%);
 }
 
-/* top-lit gradient hairline (becomes brighter on hover) */
+/* brand-tinted hairline rim (brightens on hover) */
 .gborder { position: relative; border: 1px solid var(--color-bd); }
 .gborder::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.02) 45%, transparent 70%);
+  background: linear-gradient(140deg, rgba(79,140,255,.45), rgba(155,107,255,.22) 45%, transparent 72%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
-  pointer-events: none; opacity: .5; transition: opacity .25s;
+  pointer-events: none; opacity: .3; transition: opacity .25s;
 }
-.group:hover .gborder::after, .gborder:hover::after { opacity: 1; }
+.group:hover .gborder::after, .gborder:hover::after { opacity: .7; }
 
-/* dark elevation + faint top rim, no colored glow */
+/* dark elevation (neutral) */
 .glow { box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 40px 120px -50px rgba(0,0,0,.9); }
+/* brand-colored glow for hero card + CTA */
+.brand-glow { box-shadow: 0 30px 90px -34px rgba(79,140,255,.45), 0 12px 44px -22px rgba(155,107,255,.38); }
 
 /* primary (white) button */
 .btn-primary {
@@ -57,6 +65,17 @@ body {
   transition: background .18s ease, transform .18s ease;
 }
 .btn-primary:hover { background: #e5e5e5; }
+
+/* brand (gradient) button — the main CTA.
+   Slightly deeper than the raw logo tokens so white text clears WCAG AA
+   (white on #3672e8 ~4.5:1, on #7d51e0 ~5.1:1) while staying clearly blue->violet. */
+.btn-brand {
+  background: linear-gradient(120deg, #3672e8, #7d51e0);
+  color: #fff; font-weight: 600;
+  box-shadow: 0 12px 34px -12px rgba(79,140,255,.55);
+  transition: filter .18s ease, transform .18s ease;
+}
+.btn-brand:hover { filter: brightness(1.1); }
 
 /* secondary (hairline) button */
 .btn-ghost {

@@ -78,11 +78,15 @@ const productsLd = {
   })),
 };
 
+// brand gradient (logo blue -> violet -> cyan) reused for headline highlight, wordmark, stats
+const BRAND_TEXT = 'bg-gradient-to-r from-ac via-ac2 to-ac3 bg-clip-text text-transparent';
+const BRAND_TILE = 'bg-gradient-to-br from-ac to-ac2';
+
 function Logo() {
   return (
     <div className="flex items-center gap-2.5 font-semibold text-lg tracking-tight">
       <img src="/logo.png" alt="NumberHub logo" width="34" height="34" className="rounded-lg" />
-      NumberHub
+      <span className={BRAND_TEXT}>NumberHub</span>
     </div>
   );
 }
@@ -90,7 +94,7 @@ function Logo() {
 function Eyebrow({ children }) {
   return (
     <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-[var(--color-mut)]">
-      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-blue)]" />
+      <span className="w-1.5 h-1.5 rounded-full bg-ac" />
       {children}
     </div>
   );
@@ -103,8 +107,8 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productsLd) }} />
 
       {/* announcement */}
-      <div className="relative z-30 text-center text-xs sm:text-sm py-2 px-4 bg-white/[0.03] border-b border-[var(--color-bd)] text-[var(--color-mut)]">
-        <Sparkles className="inline w-3.5 h-3.5 mb-0.5 text-white" /> Now with travel <b className="text-white font-semibold">eSIM data</b> in 219 destinations — instant QR delivery.
+      <div className="relative z-30 text-center text-xs sm:text-sm py-2 px-4 bg-gradient-to-r from-ac/10 to-ac2/10 border-b border-[var(--color-bd)] text-[var(--color-mut)]">
+        <Sparkles className="inline w-3.5 h-3.5 mb-0.5 text-ac3" /> Now with travel <b className="text-white font-semibold">eSIM data</b> in 219 destinations — instant QR delivery.
       </div>
 
       <div className="relative overflow-hidden">
@@ -121,7 +125,7 @@ export default function Home() {
               <a href="#compare" className="hover:text-white transition">Why us</a>
               <a href="#faq" className="hover:text-white transition">FAQ</a>
             </nav>
-            <a href={BOT} className="btn-primary inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm">
+            <a href={BOT} className="btn-brand inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm">
               Open the bot <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -132,33 +136,36 @@ export default function Home() {
           <section className="relative mx-auto max-w-6xl px-5 pt-16 pb-14 grid lg:grid-cols-2 gap-12 items-center">
             <div className="reveal">
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-bd)] bg-[var(--color-card)] px-3.5 py-1.5 text-xs text-[var(--color-mut)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-blue)] animate-pulse" /> Live · pay in crypto · no KYC
+                <span className="w-1.5 h-1.5 rounded-full bg-ac animate-pulse" /> Live · pay in crypto · no KYC
               </div>
-              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.05] tracking-[-0.02em] bg-gradient-to-b from-white to-[var(--color-mut)] bg-clip-text text-transparent">
-                Virtual numbers for OTP verification &amp; travel eSIM
+              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
+                Virtual numbers for{' '}
+                <span className={BRAND_TEXT}>OTP verification</span>
+                {' '}&amp; travel eSIM
               </h1>
               <p className="mt-5 max-w-xl text-lg text-[var(--color-mut)] leading-relaxed">
                 Receive SMS verification codes for 800+ apps across 190+ countries, or get instant travel data — all from one crypto wallet inside Telegram. You only pay when your code actually arrives.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a href={BOT} className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 text-[15px]">
+                <a href={BOT} className="btn-brand inline-flex items-center gap-2 rounded-lg px-6 py-3 text-[15px]">
                   <Send className="w-[18px] h-[18px]" /> Start on Telegram
                 </a>
                 <a href="#pricing" className="btn-ghost inline-flex items-center rounded-lg px-6 py-3 text-[15px] font-semibold">View pricing</a>
               </div>
               <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-mut)]">
                 {[[Lock, 'No KYC'], [Zap, 'Instant'], [RotateCcw, 'Auto-refund'], [Bitcoin, 'USDT']].map(([I, t]) => (
-                  <li key={t} className="inline-flex items-center gap-1.5"><I className="w-4 h-4 text-[var(--color-mut)]" strokeWidth={1.75} /> {t}</li>
+                  <li key={t} className="inline-flex items-center gap-1.5"><I className="w-4 h-4 text-ac" strokeWidth={1.75} /> {t}</li>
                 ))}
               </ul>
             </div>
 
             {/* product visual */}
             <div className="reveal relative">
-              <div className="gborder glow relative rounded-2xl bg-[var(--color-card)] p-5">
+              <div className="pointer-events-none absolute -inset-5 rounded-[2.2rem] bg-gradient-to-tr from-ac/20 to-ac2/15 blur-2xl" aria-hidden="true" />
+              <div className="gborder brand-glow relative rounded-2xl bg-[var(--color-card)] p-5">
                 <div className="flex items-center justify-between text-xs text-[var(--color-mut)]">
                   <span className="inline-flex items-center gap-2"><img src="/logo.png" alt="" width="20" height="20" className="rounded" /> NumberHub</span>
-                  <span className="inline-flex items-center gap-1.5 text-[var(--color-blue)]"><span className="w-1.5 h-1.5 rounded-full bg-[var(--color-blue)]" /> online</span>
+                  <span className="inline-flex items-center gap-1.5 text-ac3"><span className="w-1.5 h-1.5 rounded-full bg-ac3" /> online</span>
                 </div>
                 <div className="mt-4 rounded-xl border border-[var(--color-bd)] bg-black p-4">
                   <div className="text-xs text-[var(--color-mut)]">Your number · United States</div>
@@ -167,12 +174,12 @@ export default function Home() {
                     <Copy className="w-4 h-4 text-[var(--color-mut)]" />
                   </div>
                 </div>
-                <div className="mt-3 rounded-xl rounded-tl-md bg-white/[0.04] border border-white/10 p-4">
+                <div className="mt-3 rounded-xl rounded-tl-md bg-gradient-to-br from-ac/14 to-ac2/8 border border-ac/25 p-4">
                   <div className="text-xs text-[var(--color-mut)]">Incoming SMS · Telegram</div>
                   <div className="mt-1 text-[15px] text-[var(--color-ink)]">Your login code is <b className="font-mono text-white">384&nbsp;729</b></div>
                 </div>
                 <div className="mt-3 flex items-center justify-between rounded-xl border border-[var(--color-bd)] bg-black px-4 py-3 text-sm">
-                  <span className="inline-flex items-center gap-2 text-[var(--color-blue)]"><Check className="w-4 h-4" /> Delivered in 38s</span>
+                  <span className="inline-flex items-center gap-2 text-ac3"><Check className="w-4 h-4" /> Delivered in 38s</span>
                   <span className="text-[var(--color-mut)]">charged <b className="text-white">$0.40</b></span>
                 </div>
               </div>
@@ -196,7 +203,7 @@ export default function Home() {
             <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map(([n, l]) => (
                 <div key={l} className="gborder rounded-xl bg-[var(--color-card)] px-5 py-7 text-center">
-                  <div className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">{n}</div>
+                  <div className={`text-3xl sm:text-4xl font-semibold tracking-tight ${BRAND_TEXT}`}>{n}</div>
                   <div className="mt-1.5 text-sm text-[var(--color-mut)]">{l}</div>
                 </div>
               ))}
@@ -211,12 +218,12 @@ export default function Home() {
             <div className="mt-9 grid gap-5 md:grid-cols-3">
               {products.map(({ Icon, name, desc, price }) => (
                 <article key={name} className="group gborder reveal rounded-2xl bg-[var(--color-card)] p-7 transition hover:-translate-y-1">
-                  <div className="grid place-items-center w-12 h-12 rounded-xl bg-[var(--color-card2)] border border-[var(--color-bd2)]">
-                    <Icon className="w-6 h-6 text-white" strokeWidth={1.75} />
+                  <div className={`grid place-items-center w-12 h-12 rounded-xl ${BRAND_TILE} shadow-lg`}>
+                    <Icon className="w-6 h-6 text-white" strokeWidth={1.9} />
                   </div>
                   <h3 className="mt-5 text-xl font-semibold text-white">{name}</h3>
                   <p className="mt-2 text-sm text-[var(--color-mut)] leading-relaxed">{desc}</p>
-                  <div className="mt-5 inline-flex items-center rounded-md bg-white/[0.06] border border-[var(--color-bd)] px-3 py-1 text-sm font-semibold text-white">{price}</div>
+                  <div className="mt-5 inline-flex items-center rounded-md bg-ac/10 border border-ac/20 px-3 py-1 text-sm font-semibold text-[#8fb4ff]">{price}</div>
                 </article>
               ))}
             </div>
@@ -229,7 +236,7 @@ export default function Home() {
             <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {features.map(([Icon, t, d]) => (
                 <div key={t} className="group gborder reveal rounded-xl bg-[var(--color-card)] p-6">
-                  <div className="grid place-items-center w-10 h-10 rounded-lg bg-[var(--color-card2)] border border-[var(--color-bd2)] text-white"><Icon className="w-5 h-5" strokeWidth={1.75} /></div>
+                  <div className="grid place-items-center w-10 h-10 rounded-lg bg-ac/12 border border-ac/20 text-ac"><Icon className="w-5 h-5" strokeWidth={1.9} /></div>
                   <div className="mt-4 font-semibold text-white">{t}</div>
                   <div className="mt-1 text-sm text-[var(--color-mut)] leading-relaxed">{d}</div>
                 </div>
@@ -245,7 +252,7 @@ export default function Home() {
               {steps.map(([Icon, t, d], i) => (
                 <li key={t} className="gborder reveal rounded-xl bg-[var(--color-card)] p-6">
                   <div className="flex items-center gap-2.5">
-                    <div className="grid place-items-center w-10 h-10 rounded-lg bg-[var(--color-card2)] border border-[var(--color-bd2)]"><Icon className="w-5 h-5 text-white" strokeWidth={1.9} /></div>
+                    <div className={`grid place-items-center w-10 h-10 rounded-lg ${BRAND_TILE}`}><Icon className="w-5 h-5 text-white" strokeWidth={2} /></div>
                     <span className="text-xs font-semibold text-[var(--color-mut)]">STEP {i + 1}</span>
                   </div>
                   <div className="mt-4 font-semibold text-white">{t}</div>
@@ -268,7 +275,7 @@ export default function Home() {
                   <div key={i} className="contents">
                     <div className="px-5 py-3.5 border-t border-[var(--color-bd)] text-[var(--color-ink)]">{f}</div>
                     <div className="px-5 py-3.5 border-t border-[var(--color-bd)] grid place-items-center">
-                      <Check className="w-5 h-5 text-white" />
+                      <Check className="w-5 h-5 text-ac3" />
                     </div>
                     <div className="px-5 py-3.5 border-t border-[var(--color-bd)] grid place-items-center text-[var(--color-mut)]">
                       {b === true ? <Check className="w-5 h-5 text-white" /> : typeof b === 'string' ? <span className="text-xs">{b}</span> : <X className="w-5 h-5 text-[var(--color-mut2)]" />}
@@ -294,7 +301,7 @@ export default function Home() {
                     <tr key={i} className="border-t border-[var(--color-bd)]">
                       <td className="px-5 py-3.5 font-medium text-[var(--color-ink)]">{a}</td>
                       <td className="px-5 py-3.5 text-[var(--color-mut)]">{b}</td>
-                      <td className="px-5 py-3.5 text-right font-semibold font-mono text-white">{c}</td>
+                      <td className="px-5 py-3.5 text-right font-semibold font-mono text-ac3">{c}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -310,7 +317,7 @@ export default function Home() {
               {faqs.map(([q, a]) => (
                 <details key={q} className="group gborder rounded-xl bg-[var(--color-card)] p-5">
                   <summary className="cursor-pointer list-none font-semibold text-white flex items-center justify-between gap-4">
-                    {q}<Plus className="w-5 h-5 shrink-0 text-[var(--color-mut)] group-open:rotate-45 transition" />
+                    {q}<Plus className="w-5 h-5 shrink-0 text-ac group-open:rotate-45 transition" />
                   </summary>
                   <p className="mt-3 text-sm text-[var(--color-mut)] leading-relaxed">{a}</p>
                 </details>
@@ -320,12 +327,13 @@ export default function Home() {
 
           {/* cta */}
           <section className="relative mx-auto max-w-6xl px-5 py-16">
-            <div className="gborder reveal relative overflow-hidden rounded-2xl bg-[var(--color-card)] p-10 sm:p-16 text-center glow">
+            <div className="gborder reveal brand-glow relative overflow-hidden rounded-2xl bg-[var(--color-card)] p-10 sm:p-16 text-center">
               <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
-              <ShieldCheck className="relative mx-auto w-11 h-11 text-white" strokeWidth={1.75} />
+              <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[460px] h-[300px] rounded-full blur-[90px] bg-gradient-to-r from-ac/30 to-ac2/30" aria-hidden="true" />
+              <ShieldCheck className="relative mx-auto w-11 h-11 text-ac3" strokeWidth={1.9} />
               <h2 className="relative mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-white">Get your first code in 60 seconds</h2>
               <p className="relative mx-auto mt-3 max-w-xl text-[var(--color-mut)]">Open the bot, top up with crypto, and grab a number or eSIM instantly.</p>
-              <a href={BOT} className="btn-primary relative mt-8 inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-[15px]">
+              <a href={BOT} className="btn-brand relative mt-8 inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-[15px]">
                 Open @TheNumberHubBot <ArrowRight className="w-5 h-5" />
               </a>
             </div>
