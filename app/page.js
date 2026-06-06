@@ -1,12 +1,13 @@
 import {
   MessageSquareText, CalendarClock, Signal, Globe, Wallet, MousePointerClick,
   Zap, CheckCircle2, RotateCcw, RefreshCw, Bitcoin, Plus, ArrowRight, Send,
-  Bot, MessageCircle, Megaphone, ShieldCheck, Copy, Check, X, Sparkles, Lock,
+  Bot, MessageCircle, Megaphone, ShieldCheck, Copy, Check, X, Sparkles, Lock, Mail,
 } from 'lucide-react';
 
 const BOT = 'https://t.me/TheNumberHubBot';
 const SUPPORT = 'https://t.me/revuas';
 const CHANNEL = 'https://t.me/numberhubofficial';
+const EMAIL = 'info@numberhub.io';
 
 const services = ['Telegram', 'WhatsApp', 'Google', 'OpenAI', 'Instagram', 'Facebook', 'X / Twitter', 'TikTok', 'Discord', 'Tinder', 'Steam', 'PayPal', 'Amazon', 'Microsoft', 'Signal', 'Uber', 'LinkedIn', 'Apple'];
 
@@ -362,6 +363,7 @@ export default function Home() {
                 <li><a href={BOT} className="inline-flex items-center gap-2 hover:text-white transition"><Bot className="w-4 h-4" /> @TheNumberHubBot</a></li>
                 <li><a href={SUPPORT} className="inline-flex items-center gap-2 hover:text-white transition"><MessageCircle className="w-4 h-4" /> Support @revuas</a></li>
                 <li><a href={CHANNEL} className="inline-flex items-center gap-2 hover:text-white transition"><Megaphone className="w-4 h-4" /> @numberhubofficial</a></li>
+                <li><a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 hover:text-white transition"><Mail className="w-4 h-4" /> {EMAIL}</a></li>
               </ul>
             </div>
           </div>

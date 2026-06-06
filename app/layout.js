@@ -52,8 +52,12 @@ const ld = [
   {
     '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}/#org`,
     name: 'NumberHub', url: SITE, logo: `${SITE}/icon-512.png`, description: DESC,
+    email: 'info@numberhub.io',
     sameAs: ['https://t.me/TheNumberHubBot', 'https://t.me/numberhubofficial'],
-    contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: 'https://t.me/revuas', availableLanguage: ['en'] },
+    contactPoint: [
+      { '@type': 'ContactPoint', contactType: 'customer support', url: 'https://t.me/revuas', availableLanguage: ['en'] },
+      { '@type': 'ContactPoint', contactType: 'customer support', email: 'info@numberhub.io', availableLanguage: ['en'] },
+    ],
   },
   {
     '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#website`,
