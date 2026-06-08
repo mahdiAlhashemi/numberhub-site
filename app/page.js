@@ -41,7 +41,7 @@ const features = [
   [CheckCircle2, 'Pay only when it works', 'For OTP numbers you are charged only when the verification code actually arrives.'],
   [RotateCcw, 'Automatic refund', 'No code, no charge — held funds are released instantly back to your balance.'],
   [Zap, 'Instant delivery', 'Numbers and eSIM QR codes are issued in seconds, 24/7.'],
-  [Bitcoin, 'Crypto payments', 'Top up your wallet — no card, no bank, no chargebacks.'],
+  [Bitcoin, 'Prepaid wallet', 'Top up once — your balance is spend-only credit you control.'],
   [Globe, 'Global coverage', '800+ services, 190+ countries, 219 eSIM destinations.'],
   [RefreshCw, 'Replace anytime', 'Swap a non-working number for a fresh one in one tap.'],
 ];
@@ -49,7 +49,7 @@ const features = [
 const compare = [
   ['Charged only when the code arrives', true, false],
   ['Automatic refund if no code', true, false],
-  ['Crypto payments', true, 'sometimes'],
+  ['Prepaid wallet top-up', true, 'sometimes'],
   ['Travel eSIM data included', true, false],
   ['800+ services · 190+ countries', true, 'varies'],
   ['Replace a number instantly', true, false],
@@ -61,7 +61,7 @@ const faqs = [
   ['How do I pay?', 'You top up your in-bot wallet, and your balance is spend-only credit used to buy numbers, rentals and eSIMs.'],
   ['Which apps are supported?', 'Over 800 services including Telegram, WhatsApp, Google, OpenAI, Instagram, Facebook, Tinder and many more, across 190+ countries.'],
   ['What is the eSIM product?', 'A data-only travel eSIM delivered instantly as a QR code for 219 destinations — choose a local, regional or global plan and scan to install.'],
-  ['Do you keep my data?', 'No KYC, no accounts of yours, no SMS content retained long-term. You interact entirely through Telegram and pay in crypto.'],
+  ['Do you keep my data?', 'We keep data to a minimum — no ID documents for ordinary use, verification codes are not retained long-term, and you interact entirely through Telegram. See our Privacy Policy.'],
   ['Is there support?', 'Yes — reach us anytime on Telegram at @revuas, or follow @numberhubofficial for updates.'],
 ];
 
@@ -149,7 +149,7 @@ export default function Home() {
           <section className="relative mx-auto max-w-6xl px-5 pt-16 pb-14 grid lg:grid-cols-2 gap-12 items-center">
             <div className="reveal">
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-bd)] bg-[var(--color-card)] px-3.5 py-1.5 text-xs text-[var(--color-mut)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-ac animate-pulse" /> Live · pay in crypto · no KYC
+                <span className="w-1.5 h-1.5 rounded-full bg-ac animate-pulse" /> Live · pay only when your code arrives
               </div>
               <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
                 Virtual numbers for{' '}
@@ -157,7 +157,7 @@ export default function Home() {
                 {' '}&amp; travel eSIM
               </h1>
               <p className="mt-5 max-w-xl text-lg text-[var(--color-mut)] leading-relaxed">
-                Receive SMS verification codes for 800+ apps across 190+ countries, or get instant travel data — all from one crypto wallet inside Telegram. You only pay when your code actually arrives.
+                Receive SMS verification codes for 800+ apps across 190+ countries, or get instant travel data — all from one wallet inside Telegram. You only pay when your code actually arrives.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href={BOT} className="btn-brand inline-flex items-center gap-2 rounded-lg px-6 py-3 text-[15px]">
@@ -166,7 +166,7 @@ export default function Home() {
                 <a href="#pricing" className="btn-ghost inline-flex items-center rounded-lg px-6 py-3 text-[15px] font-semibold">View pricing</a>
               </div>
               <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-mut)]">
-                {[[Lock, 'No KYC'], [Zap, 'Instant'], [RotateCcw, 'Auto-refund'], [Bitcoin, 'Crypto']].map(([I, t]) => (
+                {[[Zap, 'Instant'], [RotateCcw, 'Auto-refund'], [Globe, '190+ countries'], [Lock, 'Privacy-first']].map(([I, t]) => (
                   <li key={t} className="inline-flex items-center gap-1.5"><I className="w-4 h-4 text-ac" strokeWidth={1.75} /> {t}</li>
                 ))}
               </ul>
@@ -368,7 +368,7 @@ export default function Home() {
               <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[460px] h-[300px] rounded-full blur-[90px] bg-gradient-to-r from-ac/30 to-ac2/30" aria-hidden="true" />
               <ShieldCheck className="relative mx-auto w-11 h-11 text-ac3" strokeWidth={1.9} />
               <h2 className="relative mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-white">Get your first code in 60 seconds</h2>
-              <p className="relative mx-auto mt-3 max-w-xl text-[var(--color-mut)]">Open the bot, top up with crypto, and grab a number or eSIM instantly.</p>
+              <p className="relative mx-auto mt-3 max-w-xl text-[var(--color-mut)]">Open the bot, top up your wallet, and grab a number or eSIM instantly.</p>
               <a href={BOT} className="btn-brand relative mt-8 inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-[15px]">
                 Open @TheNumberHubBot <ArrowRight className="w-5 h-5" />
               </a>

@@ -14,7 +14,7 @@ const faqs = [
   ['Which apps are supported?', 'Over 800 services including Telegram, WhatsApp, Google, OpenAI, Instagram, Facebook, Tinder and many more, across 190+ countries.'],
   ['What is the eSIM product?', 'A data-only travel eSIM delivered as a QR code for 219 destinations — choose a local, regional or global plan and scan to install. It is usually ready within seconds.'],
   ['Can I cancel or get a refund?', 'OTP holds are released automatically if no code arrives. Rentals can be cancelled for a refund within a short window after they start, and eSIMs are charged once the provider accepts the order. Full details are in our Refund Policy.'],
-  ['Do you keep my data?', 'We keep data collection minimal: no KYC for ordinary use, and verification codes are deleted after delivery. You interact through Telegram and pay in crypto. See our Privacy Policy.'],
+  ['Do you keep my data?', 'We keep data collection to a minimum: we do not ask for ID documents for ordinary use, and verification codes are deleted after delivery. You interact through Telegram. See our Privacy Policy.'],
   ['Is there support?', 'Yes — reach us on Telegram at @revuas or by email at info@numberhub.io. We aim to respond within 24 hours, usually sooner.'],
   ['Why might a number not receive a code?', 'Some third-party platforms detect or block virtual numbers. If a number does not work you can request a replacement or cancel for a release of the hold — you are never charged for a code you did not receive.'],
 ];

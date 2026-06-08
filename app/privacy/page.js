@@ -3,7 +3,7 @@ import { BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT } from '../site-config';
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'How NumberHub collects, uses, retains, and protects your data — and your rights. Minimal data, no KYC for ordinary use, SMS codes deleted after delivery.',
+  description: 'How NumberHub collects, uses, retains, and protects your data — and your rights. Minimal data, no ID documents for ordinary use, SMS codes deleted after delivery.',
   alternates: { canonical: '/privacy/' },
 };
 

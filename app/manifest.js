@@ -5,7 +5,7 @@ export default function manifest() {
     name: 'NumberHub — Virtual Numbers & eSIM',
     short_name: 'NumberHub',
     description:
-      'Virtual phone numbers for OTP verification, number rentals, and travel eSIM data. Pay in crypto.',
+      'Virtual phone numbers for OTP verification, number rentals, and travel eSIM data.',
     start_url: '/',
     display: 'standalone',
     background_color: '#000000',
