@@ -1,11 +1,12 @@
 import { LegalPage } from '../_components/chrome';
 import { BRAND, EMAIL } from '../site-config';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Cookie Policy',
   description: 'How NumberHub uses cookies and local storage. We use only essential storage; any analytics is privacy-friendly and consent-gated.',
-  alternates: { canonical: '/cookies/' },
-};
+  path: '/cookies/',
+});
 
 export default function Cookies() {
   return (

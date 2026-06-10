@@ -1,7 +1,8 @@
 import { SubHeader, SiteFooter, Breadcrumb } from '../../_components/chrome';
-import { BOT, SITE } from '../../site-config';
+import { BOT } from '../../site-config';
+import { pageMeta } from '../../_lib/meta';
 import { SERVICES, SERVICE_MAP } from '../../_data/services';
-import { ArrowRight, Check, Wallet, MousePointerClick, Zap, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, Wallet, MousePointerClick, Zap, ShieldCheck, Lightbulb } from 'lucide-react';
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ service: s.slug }));
@@ -11,13 +12,11 @@ export async function generateMetadata({ params }) {
   const { service } = await params;
   const s = SERVICE_MAP[service];
   if (!s) return {};
-  const title = `${s.name} virtual number — receive ${s.name} OTP codes`;
-  const description = `Get a virtual phone number to receive your ${s.name} SMS verification code, from ${s.price}. Charged only when the code arrives. 190+ countries, instant in Telegram.`;
-  return {
-    title, description,
-    alternates: { canonical: `/numbers/${s.slug}/` },
-    openGraph: { title: `${title} · NumberHub`, description, url: `${SITE}/numbers/${s.slug}/` },
-  };
+  return pageMeta({
+    title: `${s.name} virtual number — receive ${s.name} OTP codes`,
+    description: `Get a virtual phone number to receive your ${s.name} SMS verification code, from ${s.price}. Charged only when the code arrives. 190+ countries, instant in Telegram.`,
+    path: `/numbers/${s.slug}/`,
+  });
 }
 
 const steps = [
@@ -57,6 +56,20 @@ export default async function ServicePage({ params }) {
           <a href={BOT} className="btn-brand inline-flex items-center gap-2 rounded-lg px-6 py-3 text-[15px]">Get a {s.name} number <ArrowRight className="w-5 h-5" /></a>
           <span className="inline-flex items-center rounded-md bg-ac/10 border border-ac/20 px-3 py-1.5 text-sm font-semibold text-[#8fb4ff]">from {s.price}</span>
         </div>
+
+        {s.about?.length ? (
+          <section className="mt-10">
+            <h2 className="text-2xl font-semibold tracking-tight text-white">Why use a temporary phone number for {s.name}?</h2>
+            {s.about.map((para, i) => (
+              <p key={i} className="mt-4 text-mut leading-relaxed">{para}</p>
+            ))}
+            {s.tip ? (
+              <p className="mt-4 inline-flex items-start gap-2 rounded-xl border border-ac/20 bg-ac/5 px-4 py-3 text-sm text-ink leading-relaxed">
+                <Lightbulb className="mt-0.5 w-4 h-4 shrink-0 text-ac3" aria-hidden="true" /> <span><strong>Tip:</strong> {s.tip}</span>
+              </p>
+            ) : null}
+          </section>
+        ) : null}
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">How to get a {s.name} number</h2>
         <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

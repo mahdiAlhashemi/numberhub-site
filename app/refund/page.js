@@ -1,11 +1,12 @@
 import { LegalPage } from '../_components/chrome';
 import { BRAND, EMAIL, SUPPORT } from '../site-config';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Refund & Cancellation Policy',
-  description: 'How NumberHub charging, holds, refunds, and cancellation windows work for OTP numbers, rentals, and eSIM data plans.',
-  alternates: { canonical: '/refund/' },
-};
+  description: 'How NumberHub charging, holds, refunds, and cancellation windows work for OTP numbers, rentals, email OTPs, and eSIM data plans.',
+  path: '/refund/',
+});
 
 export default function Refund() {
   return (
@@ -23,14 +24,21 @@ export default function Refund() {
         <li>If a number does not work, you can request a replacement or cancel for a release of the hold — you are never charged for a code you did not receive.</li>
       </ul>
 
-      <h2>2. Number rentals — upfront, with a cancellation window</h2>
+      <h2>2. Email OTPs — charged only on delivery</h2>
+      <ul>
+        <li>Email OTPs use the <strong>same model as OTP numbers</strong>: the price is held when you order an address and <strong>charged only when the verification code is delivered</strong>.</li>
+        <li>If no code arrives within the activation window, or the order is cancelled, the hold is <strong>released automatically</strong> and you pay nothing.</li>
+        <li>A waiting email order can be cancelled at any time for a release of the hold.</li>
+      </ul>
+
+      <h2>3. Number rentals — upfront, with a cancellation window</h2>
       <ul>
         <li>Rentals are <strong>paid upfront</strong> for the selected period.</li>
         <li>A rental can be <strong>cancelled for a refund of the upfront charge only within a short window after it starts</strong> (between roughly 2 and 20 minutes from the start), mirroring upstream provider policy. The refund is credited back to your wallet balance.</li>
         <li>After that window, the rental can be ended but is <strong>not refundable</strong>, as the dedicated number has been reserved for your period.</li>
       </ul>
 
-      <h2>3. eSIM data plans — charged when the order is accepted</h2>
+      <h2>4. eSIM data plans — charged when the order is accepted</h2>
       <ul>
         <li>eSIM plans are <strong>paid upfront</strong>. The charge is finalised once the provider <strong>accepts your order</strong>, and is <strong>final once accepted</strong>, even if delivery of the QR profile is briefly delayed.</li>
         <li>You are <strong>only not charged</strong> (the hold is released) if the order <strong>cannot be placed with the provider at all</strong>.</li>
@@ -38,17 +46,17 @@ export default function Refund() {
         <li>Because an eSIM is a provisioned digital good, an accepted or issued plan is <strong>non-refundable</strong>.</li>
       </ul>
 
-      <h2>4. Form of refunds</h2>
+      <h2>5. Form of refunds</h2>
       <p>Refunds and releases are credited to your in-bot <strong>wallet balance</strong> as spend-only credit. Because top-ups are made with cryptocurrency and on-chain transactions are final and non-reversible, we do not refund to the originating blockchain wallet.</p>
 
-      <h2>5. Things outside a refund</h2>
+      <h2>6. Things outside a refund</h2>
       <ul>
         <li>A third-party platform detecting, blocking, or banning a virtual number after a code was successfully delivered is not grounds for a refund of that delivered code.</li>
         <li>Entering the wrong service, country, or destination after a code/eSIM was correctly delivered.</li>
         <li>Losses from sending the wrong crypto asset, amount, or network during top-up (see <a href="/terms/">Terms</a>).</li>
       </ul>
 
-      <h2>6. How to request help</h2>
+      <h2>7. How to request help</h2>
       <p>Most releases and refunds are automatic. If something looks wrong, contact us within a reasonable time with your order details: <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or Telegram <a href={SUPPORT}>@revuas</a>. We aim to respond promptly.</p>
 
       <p>This policy forms part of, and should be read with, our <a href="/terms/">Terms of Service</a>.</p>

@@ -1,24 +1,29 @@
 import {
   MessageSquareText, CalendarClock, Signal, Globe, Wallet, MousePointerClick,
   Zap, CheckCircle2, RotateCcw, RefreshCw, Bitcoin, Plus, ArrowRight, Send,
-  ShieldCheck, Copy, Check, X, Sparkles, Lock, Menu,
+  ShieldCheck, Copy, Check, X, Sparkles, Lock, Menu, AtSign,
 } from 'lucide-react';
 import { SiteFooter } from './_components/chrome';
-import { TRUST_POINTS } from './site-config';
+import { TRUST_POINTS, BOT, SITE } from './site-config';
 
-const BOT = 'https://t.me/TheNumberHubBot';
-
+// Marquee chips — the ones with a dedicated landing page link to it.
 const services = ['Telegram', 'WhatsApp', 'Google', 'OpenAI', 'Instagram', 'Facebook', 'X / Twitter', 'TikTok', 'Discord', 'Tinder', 'Steam', 'PayPal', 'Amazon', 'Microsoft', 'Signal', 'Uber', 'LinkedIn', 'Apple'];
+const serviceSlugs = {
+  Telegram: 'telegram', WhatsApp: 'whatsapp', Google: 'google', OpenAI: 'openai',
+  Instagram: 'instagram', Facebook: 'facebook', TikTok: 'tiktok', Discord: 'discord',
+};
 
 const stats = [['800+', 'Supported services'], ['190+', 'Countries'], ['219', 'eSIM destinations'], ['~40s', 'Avg. code delivery']];
 
 const products = [
-  { Icon: MessageSquareText, name: 'OTP Numbers', price: 'from $0.20', low: '0.20',
+  { Icon: MessageSquareText, name: 'OTP Numbers', price: 'from $0.20', low: '0.20', href: '/numbers/',
     desc: 'A temporary number that receives one-time SMS codes for Telegram, WhatsApp, Google, OpenAI and 800+ apps. Charged only when the code arrives.' },
-  { Icon: CalendarClock, name: 'Number Rentals', price: 'from $3.00', low: '3.00',
+  { Icon: CalendarClock, name: 'Number Rentals', price: 'from $3.00', low: '3.00', href: '/rent/',
     desc: 'Keep a dedicated number for a day to a month and receive all of its codes during that period — perfect for ongoing access.' },
-  { Icon: Signal, name: 'eSIM Data Plans', price: 'from $0.33', low: '0.33',
+  { Icon: Signal, name: 'eSIM Data Plans', price: 'from $0.33', low: '0.33', href: '/esim/',
     desc: 'Instant travel-data eSIM for 219 destinations, delivered as a QR code — local, regional and global plans. No physical SIM.' },
+  { Icon: AtSign, name: 'Email OTPs', price: 'from $0.05', low: '0.05', href: '/email/',
+    desc: 'A disposable email address that receives the verification code for the site you choose — charged only when the code arrives.' },
 ];
 
 const steps = [
@@ -32,6 +37,7 @@ const pricing = [
   ['OTP — Telegram', 'United States', '$0.40'],
   ['OTP — WhatsApp', 'United Kingdom', '$0.55'],
   ['OTP — OpenAI', 'India', '$0.35'],
+  ['Email OTP — Instagram', 'gmx.com mailbox', '$0.05'],
   ['eSIM — 1GB / 7 days', 'United States', '$2.20'],
   ['eSIM — 10GB / 30 days', 'Uzbekistan (local)', '$6.40'],
   ['eSIM — 5GB / 30 days', 'Europe (regional)', '$11.00'],
@@ -51,6 +57,7 @@ const compare = [
   ['Automatic refund if no code', true, false],
   ['Prepaid wallet top-up', true, 'sometimes'],
   ['Travel eSIM data included', true, false],
+  ['Email OTP option included', true, false],
   ['800+ services · 190+ countries', true, 'varies'],
   ['Replace a number instantly', true, false],
   ['Instant in-app delivery', true, 'often slow'],
@@ -58,23 +65,27 @@ const compare = [
 
 const faqs = [
   ['When am I charged for a number?', 'For OTP numbers, the price is held when you buy and charged only when a verification code is delivered. If no code arrives, the hold is released and you pay nothing.'],
-  ['How do I pay?', 'You top up your in-bot wallet, and your balance is spend-only credit used to buy numbers, rentals and eSIMs.'],
+  ['How do I pay?', 'You top up your in-bot wallet, and your balance is spend-only credit used to buy numbers, rentals, email OTPs and eSIMs.'],
   ['Which apps are supported?', 'Over 800 services including Telegram, WhatsApp, Google, OpenAI, Instagram, Facebook, Tinder and many more, across 190+ countries.'],
   ['What is the eSIM product?', 'A data-only travel eSIM delivered instantly as a QR code for 219 destinations — choose a local, regional or global plan and scan to install.'],
+  ['What is an Email OTP?', 'A disposable email address that receives the verification code for the website you choose — handy when a site verifies by email instead of SMS. Like OTP numbers, you are charged only when the code arrives.'],
   ['Do you keep my data?', 'We keep data to a minimum — no ID documents for ordinary use, verification codes are not retained long-term, and you interact entirely through Telegram. See our Privacy Policy.'],
   ['Is there support?', 'Yes — reach us anytime on Telegram at @revuas, or follow @numberhubofficial for updates.'],
 ];
 
-const faqLd = {
-  '@context': 'https://schema.org', '@type': 'FAQPage',
-  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+// NOTE: no FAQPage JSON-LD here — /faq/ is the canonical FAQ entity (duplicate
+// FAQPage markup on two pages dilutes which URL ranks for those questions).
+const serviceLd = {
+  '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE}/#service`,
+  name: 'Virtual numbers, email OTPs & travel eSIM',
+  serviceType: 'OTP / SMS verification numbers, email verification, and travel data eSIM',
+  provider: { '@id': `${SITE}/#org` }, areaServed: 'Worldwide',
+  offers: { '@type': 'Offer', priceCurrency: 'USD', price: '0.05', availability: 'https://schema.org/InStock', url: `${SITE}/pricing/` },
 };
 const productsLd = {
   '@context': 'https://schema.org', '@type': 'ItemList',
   itemListElement: products.map((p, i) => ({
-    '@type': 'ListItem', position: i + 1,
-    item: { '@type': 'Product', name: p.name, description: p.desc, brand: { '@type': 'Brand', name: 'NumberHub' },
-      offers: { '@type': 'Offer', priceCurrency: 'USD', price: p.low, availability: 'https://schema.org/InStock', url: BOT } },
+    '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE}${p.href}`,
   })),
 };
 
@@ -85,7 +96,8 @@ const BRAND_TILE = 'bg-gradient-to-br from-ac to-ac2';
 function Logo() {
   return (
     <div className="flex items-center gap-2.5 font-semibold text-lg tracking-tight">
-      <img src="/logo.png" alt="NumberHub logo" width="34" height="34" className="rounded-lg" />
+      {/* alt="" — the adjacent text names the brand; 96px asset (~9KB) instead of the 512px icon */}
+      <img src="/logo-96.png" alt="" width="34" height="34" className="rounded-lg" />
       <span className={BRAND_TEXT}>NumberHub</span>
     </div>
   );
@@ -103,12 +115,12 @@ function Eyebrow({ children }) {
 export default function Home() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productsLd) }} />
 
       {/* announcement */}
       <div className="relative z-30 text-center text-xs sm:text-sm py-2 px-4 bg-gradient-to-r from-ac/10 to-ac2/10 border-b border-[var(--color-bd)] text-[var(--color-mut)]">
-        <Sparkles className="inline w-3.5 h-3.5 mb-0.5 text-ac3" /> Now with travel <b className="text-white font-semibold">eSIM data</b> in 219 destinations — instant QR delivery.
+        <Sparkles className="inline w-3.5 h-3.5 mb-0.5 text-ac3" /> New: <a href="/email/" className="text-white font-semibold underline underline-offset-2 hover:text-ac transition">Email OTPs</a> — receive email verification codes from $0.05.
       </div>
 
       <div className="relative overflow-hidden">
@@ -119,8 +131,9 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
             <Logo />
             <div className="flex items-center gap-2.5">
-              <nav className="hidden md:flex items-center gap-8 text-sm text-[var(--color-mut)] mr-2" aria-label="Primary">
+              <nav className="hidden md:flex items-center gap-7 text-sm text-[var(--color-mut)] mr-2" aria-label="Primary">
                 <a href="#products" className="hover:text-white transition">Products</a>
+                <a href="/numbers/" className="hover:text-white transition">Numbers</a>
                 <a href="#pricing" className="hover:text-white transition">Pricing</a>
                 <a href="#how" className="hover:text-white transition">How it works</a>
                 <a href="#compare" className="hover:text-white transition">Why us</a>
@@ -131,11 +144,11 @@ export default function Home() {
               </a>
               {/* mobile menu — CSS-only, no JS */}
               <details className="md:hidden relative">
-                <summary aria-label="Open menu" className="list-none cursor-pointer grid place-items-center w-9 h-9 rounded-lg border border-[var(--color-bd)] text-[var(--color-mut)] hover:text-white transition">
+                <summary aria-label="Menu" className="list-none cursor-pointer grid place-items-center w-9 h-9 rounded-lg border border-[var(--color-bd)] text-[var(--color-mut)] hover:text-white transition">
                   <Menu className="w-5 h-5" />
                 </summary>
                 <div className="absolute right-0 mt-2 w-56 rounded-xl border border-[var(--color-bd)] bg-[var(--color-card)] p-2 shadow-2xl">
-                  {[['#products', 'Products'], ['#pricing', 'Pricing'], ['#how', 'How it works'], ['#compare', 'Why us'], ['#faq', 'FAQ'], ['/about/', 'About']].map(([href, label]) => (
+                  {[['#products', 'Products'], ['/numbers/', 'Numbers'], ['#pricing', 'Pricing'], ['#how', 'How it works'], ['#compare', 'Why us'], ['#faq', 'FAQ'], ['/about/', 'About']].map(([href, label]) => (
                     <a key={label} href={href} className="block px-3 py-2 rounded-lg text-sm text-[var(--color-mut)] hover:text-white hover:bg-white/5 transition">{label}</a>
                   ))}
                 </div>
@@ -157,7 +170,7 @@ export default function Home() {
                 {' '}&amp; travel eSIM
               </h1>
               <p className="mt-5 max-w-xl text-lg text-[var(--color-mut)] leading-relaxed">
-                Receive SMS verification codes for 800+ apps across 190+ countries, or get instant travel data — all from one wallet inside Telegram. You only pay when your code actually arrives.
+                Receive SMS online with a temporary phone number for 800+ apps across 190+ countries — or get email OTPs and instant travel data, all from one wallet inside Telegram. You only pay when your code actually arrives.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href={BOT} className="btn-brand inline-flex items-center gap-2 rounded-lg px-6 py-3 text-[15px]">
@@ -177,7 +190,7 @@ export default function Home() {
               <div className="pointer-events-none absolute -inset-5 rounded-[2.2rem] bg-gradient-to-tr from-ac/20 to-ac2/15 blur-2xl" aria-hidden="true" />
               <div className="gborder brand-glow relative rounded-2xl bg-[var(--color-card)] p-5">
                 <div className="flex items-center justify-between text-xs text-[var(--color-mut)]">
-                  <span className="inline-flex items-center gap-2"><img src="/logo.png" alt="" width="20" height="20" className="rounded" /> NumberHub</span>
+                  <span className="inline-flex items-center gap-2"><img src="/logo-96.png" alt="" width="20" height="20" className="rounded" /> NumberHub</span>
                   <span className="inline-flex items-center gap-1.5 text-ac3"><span className="w-1.5 h-1.5 rounded-full bg-ac3" /> online</span>
                 </div>
                 <div className="mt-4 rounded-xl border border-[var(--color-bd)] bg-black p-4">
@@ -204,8 +217,18 @@ export default function Home() {
             <p className="text-center text-xs uppercase tracking-[0.16em] text-[var(--color-mut)]">Works with 800+ services, including</p>
             <div className="marquee-mask mt-5 overflow-hidden">
               <div className="marquee flex w-max gap-3">
-                {[...services, ...services].map((s, i) => (
-                  <span key={i} className="shrink-0 rounded-full border border-[var(--color-bd)] bg-[var(--color-card)] px-4 py-1.5 text-sm text-[var(--color-mut)]">{s}</span>
+                {/* chips with a landing page are real links; the 2nd copy is purely
+                    decorative for the loop, so it's hidden from AT + tab order */}
+                {[0, 1].map((copy) => (
+                  <div key={copy} className="flex gap-3" aria-hidden={copy === 1 ? 'true' : undefined}>
+                    {services.map((s) =>
+                      serviceSlugs[s] && copy === 0 ? (
+                        <a key={s} href={`/numbers/${serviceSlugs[s]}/`} className="shrink-0 rounded-full border border-[var(--color-bd)] bg-[var(--color-card)] px-4 py-1.5 text-sm text-[var(--color-mut)] hover:text-white hover:border-[var(--color-bd2)] transition">{s}</a>
+                      ) : (
+                        <span key={s} className="shrink-0 rounded-full border border-[var(--color-bd)] bg-[var(--color-card)] px-4 py-1.5 text-sm text-[var(--color-mut)]">{s}</span>
+                      )
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
@@ -226,17 +249,20 @@ export default function Home() {
           {/* products */}
           <section id="products" className="relative mx-auto max-w-6xl px-5 py-16">
             <Eyebrow>Products</Eyebrow>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">One wallet, three products</h2>
-            <p className="mt-2 max-w-2xl text-[var(--color-mut)]">Numbers, rentals and travel data — all delivered instantly inside Telegram.</p>
-            <div className="mt-9 grid gap-5 md:grid-cols-3">
-              {products.map(({ Icon, name, desc, price }) => (
+            <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">One wallet, four products</h2>
+            <p className="mt-2 max-w-2xl text-[var(--color-mut)]">Numbers, rentals, email OTPs and travel data — all delivered instantly inside Telegram.</p>
+            <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {products.map(({ Icon, name, desc, price, href }) => (
                 <article key={name} className="group gborder reveal rounded-2xl bg-[var(--color-card)] p-7 transition hover:-translate-y-1">
                   <div className={`grid place-items-center w-12 h-12 rounded-xl ${BRAND_TILE} shadow-lg`}>
                     <Icon className="w-6 h-6 text-white" strokeWidth={1.9} />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-white">{name}</h3>
+                  <h3 className="mt-5 text-xl font-semibold text-white"><a href={href} className="hover:text-ac transition">{name}</a></h3>
                   <p className="mt-2 text-sm text-[var(--color-mut)] leading-relaxed">{desc}</p>
-                  <div className="mt-5 inline-flex items-center rounded-md bg-ac/10 border border-ac/20 px-3 py-1 text-sm font-semibold text-[#8fb4ff]">{price}</div>
+                  <div className="mt-5 flex items-center justify-between">
+                    <span className="inline-flex items-center rounded-md bg-ac/10 border border-ac/20 px-3 py-1 text-sm font-semibold text-[#8fb4ff]">{price}</span>
+                    <a href={href} className="text-sm text-[var(--color-mut)] group-hover:text-white transition inline-flex items-center gap-1">Learn more <ArrowRight className="w-3.5 h-3.5" /></a>
+                  </div>
                 </article>
               ))}
             </div>
@@ -280,22 +306,33 @@ export default function Home() {
             <Eyebrow>Comparison</Eyebrow>
             <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">NumberHub vs typical SMS sites</h2>
             <div className="mt-8 gborder overflow-hidden rounded-xl bg-[var(--color-card)]">
-              <div className="grid grid-cols-[1fr_auto_auto] text-sm">
-                <div className="px-5 py-3.5 text-[var(--color-mut)] font-medium">Feature</div>
-                <div className="px-5 py-3.5 text-center font-semibold text-white">NumberHub</div>
-                <div className="px-5 py-3.5 text-center text-[var(--color-mut)] font-medium">Others</div>
-                {compare.map(([f, a, b], i) => (
-                  <div key={i} className="contents">
-                    <div className="px-5 py-3.5 border-t border-[var(--color-bd)] text-[var(--color-ink)]">{f}</div>
-                    <div className="px-5 py-3.5 border-t border-[var(--color-bd)] grid place-items-center">
-                      <Check className="w-5 h-5 text-ac3" />
-                    </div>
-                    <div className="px-5 py-3.5 border-t border-[var(--color-bd)] grid place-items-center text-[var(--color-mut)]">
-                      {b === true ? <Check className="w-5 h-5 text-white" /> : typeof b === 'string' ? <span className="text-xs">{b}</span> : <X className="w-5 h-5 text-[var(--color-mut2)]" />}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* real table semantics + sr-only Yes/No so the icons aren't silent for AT */}
+              <table className="w-full text-sm">
+                <thead>
+                  <tr>
+                    <th scope="col" className="px-5 py-3.5 text-left text-[var(--color-mut)] font-medium">Feature</th>
+                    <th scope="col" className="px-5 py-3.5 text-center font-semibold text-white">NumberHub</th>
+                    <th scope="col" className="px-5 py-3.5 text-center text-[var(--color-mut)] font-medium">Others</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {compare.map(([f, a, b], i) => (
+                    <tr key={i}>
+                      <th scope="row" className="px-5 py-3.5 border-t border-[var(--color-bd)] text-left font-normal text-[var(--color-ink)]">{f}</th>
+                      <td className="px-5 py-3.5 border-t border-[var(--color-bd)] text-center">
+                        <Check className="inline w-5 h-5 text-ac3" aria-hidden="true" /><span className="sr-only">Yes</span>
+                      </td>
+                      <td className="px-5 py-3.5 border-t border-[var(--color-bd)] text-center text-[var(--color-mut)]">
+                        {b === true
+                          ? <><Check className="inline w-5 h-5 text-white" aria-hidden="true" /><span className="sr-only">Yes</span></>
+                          : typeof b === 'string'
+                            ? <span className="text-xs">{b}</span>
+                            : <><X className="inline w-5 h-5 text-[var(--color-mut2)]" aria-hidden="true" /><span className="sr-only">No</span></>}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </section>
 
@@ -336,6 +373,9 @@ export default function Home() {
                 </details>
               ))}
             </div>
+            <p className="mt-6 text-center text-sm text-[var(--color-mut)]">
+              <a href="/faq/" className="hover:text-white transition underline underline-offset-2">See all FAQs →</a>
+            </p>
           </section>
 
           {/* trust */}

@@ -1,11 +1,12 @@
 import { LegalPage } from '../_components/chrome';
 import { BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT } from '../site-config';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Terms of Service',
-  description: 'The terms governing use of NumberHub — virtual numbers for OTP verification, number rentals, and travel eSIM data.',
-  alternates: { canonical: '/terms/' },
-};
+  description: 'The terms governing use of NumberHub — virtual numbers for OTP verification, number rentals, email OTPs, and travel eSIM data.',
+  path: '/terms/',
+});
 
 export default function Terms() {
   return (
@@ -20,6 +21,7 @@ export default function Terms() {
         <li><strong>OTP / verification numbers</strong> — temporary virtual phone numbers that receive one-time SMS verification codes for third-party apps and websites.</li>
         <li><strong>Number rentals</strong> — a dedicated virtual number kept for a chosen period that receives the SMS codes sent to it during that period.</li>
         <li><strong>eSIM data plans</strong> — data-only travel eSIM profiles delivered as a QR code for supported destinations.</li>
+        <li><strong>Email OTPs</strong> — disposable email addresses that receive a one-time verification code for a chosen third-party website.</li>
       </ul>
       <p>The Service is a reseller: numbers are supplied by upstream providers and eSIMs by an upstream eSIM operator. Availability, coverage, and the ability of any number to receive a given code depend on those providers and on the third-party platform you are verifying with.</p>
 
@@ -33,12 +35,13 @@ export default function Terms() {
         <li>You are responsible for sending the correct amount, asset, and network. Funds sent to the wrong address or on an unsupported network may be unrecoverable.</li>
         <li>Prices are shown before each purchase and may change with provider costs and demand.</li>
         <li>Prices are shown in USD-equivalent and settled in cryptocurrency. Where we are required to collect sales tax, VAT, or GST, it may be added; the payment is treated as final settlement of the full amount, including any such tax.</li>
+        <li>Deposit bonuses and referral credits are <strong>promotional, spend-only credit</strong>: they can be used to buy products but are not withdrawable, may be changed or withdrawn prospectively at any time, and may be reversed in cases of abuse.</li>
       </ul>
 
       <h2>4. How charges work</h2>
       <p>Charging depends on the product, and is described in full in our <a href="/refund/">Refund &amp; Cancellation Policy</a>:</p>
       <ul>
-        <li><strong>OTP numbers</strong> — the price is <strong>held</strong> when you order and <strong>charged only when a verification code is delivered</strong>. If no code arrives within the 20-minute activation window, the hold is released and you are not charged.</li>
+        <li><strong>OTP numbers and Email OTPs</strong> — the price is <strong>held</strong> when you order and <strong>charged only when a verification code is delivered</strong>. If no code arrives within the activation window, the hold is released and you are not charged.</li>
         <li><strong>Rentals and eSIM</strong> — paid <strong>upfront</strong> for the selected period or plan, subject to the cancellation windows in the Refund Policy.</li>
       </ul>
 

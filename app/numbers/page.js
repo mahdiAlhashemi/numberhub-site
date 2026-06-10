@@ -2,12 +2,13 @@ import { SubHeader, SiteFooter, Breadcrumb } from '../_components/chrome';
 import { BOT } from '../site-config';
 import { SERVICES } from '../_data/services';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
-  title: 'Virtual numbers by service',
-  description: 'Get a virtual phone number to receive OTP codes for Telegram, WhatsApp, Google, OpenAI, Instagram and 800+ more apps. Charged only when the code arrives.',
-  alternates: { canonical: '/numbers/' },
-};
+export const metadata = pageMeta({
+  title: 'Virtual Numbers by Service — Receive SMS Online',
+  description: 'Get a temporary phone number to receive OTP codes for Telegram, WhatsApp, Google, OpenAI, Instagram and 800+ more apps. Charged only when the code arrives.',
+  path: '/numbers/',
+});
 
 export default function NumbersHub() {
   return (

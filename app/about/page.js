@@ -1,32 +1,37 @@
 import { SubHeader, SiteFooter } from '../_components/chrome';
-import { BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT, BOT, CHANNEL } from '../site-config';
-import { MessageSquareText, CalendarClock, Signal, Wallet, ShieldCheck, ArrowRight, Mail, MessageCircle, Megaphone, Bot } from 'lucide-react';
+import {
+  BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT, BOT, CHANNEL,
+  BOT_HANDLE, SUPPORT_HANDLE, CHANNEL_HANDLE,
+} from '../site-config';
+import { pageMeta } from '../_lib/meta';
+import { MessageSquareText, CalendarClock, Signal, Wallet, ShieldCheck, ArrowRight, Mail, MessageCircle, Megaphone, Bot, AtSign } from 'lucide-react';
 
-export const metadata = {
-  title: 'About',
-  description: 'About NumberHub — what we sell, how the in-bot wallet works, and how to reach us. A live service for virtual OTP numbers, rentals, and travel eSIM.',
-  alternates: { canonical: '/about/' },
-};
+export const metadata = pageMeta({
+  title: 'About NumberHub — Who We Are & How Payment Works',
+  description: 'About NumberHub — what we sell, how the in-bot wallet works, and how to reach us. A live service for virtual OTP numbers, rentals, email OTPs and travel eSIM.',
+  path: '/about/',
+});
 
 const offerings = [
   [MessageSquareText, 'OTP / verification numbers', 'Temporary virtual numbers that receive one-time SMS codes for 800+ apps across 190+ countries. You are charged only when the code arrives.'],
   [CalendarClock, 'Number rentals', 'A dedicated number kept for a chosen period that receives all of its codes during that time.'],
   [Signal, 'Travel eSIM data', 'Data-only eSIM profiles for 219 destinations, usually ready within seconds as a QR code — local, regional, and global plans.'],
+  [AtSign, 'Email OTPs', 'A disposable email address that receives the verification code for the website you choose — charged only when the code arrives, like OTP numbers.'],
 ];
 
 export default function About() {
   return (
     <>
       <SubHeader />
-      <main className="mx-auto max-w-4xl px-5 pt-14 pb-20">
+      <main id="main" className="mx-auto max-w-4xl px-5 pt-14 pb-20">
         <div className="text-xs font-medium uppercase tracking-[0.16em] text-mut">About</div>
         <h1 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">A live service for verification numbers &amp; travel data</h1>
         <p className="mt-4 max-w-2xl text-lg text-mut leading-relaxed">
-          {BRAND} is {OPERATOR}. We make online verification and travel connectivity simple: get a virtual number to receive an SMS code, rent a number for longer, or grab a travel eSIM — all from one prepaid wallet inside Telegram, with a fair "pay only when it works" model for OTP.
+          {BRAND} is {OPERATOR}. We make online verification and travel connectivity simple: get a virtual number to receive an SMS code, rent a number for longer, receive a verification code by email, or grab a travel eSIM — all from one prepaid wallet inside Telegram, with a fair "pay only when it works" model for OTP.
         </p>
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">What we offer</h2>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
           {offerings.map(([Icon, name, desc]) => (
             <div key={name} className="gborder rounded-2xl bg-card p-6">
               <div className="grid place-items-center w-11 h-11 rounded-lg bg-gradient-to-br from-ac to-ac2"><Icon className="w-5 h-5 text-white" strokeWidth={1.9} /></div>
@@ -62,9 +67,9 @@ export default function About() {
         <p className="mt-4 text-mut leading-relaxed">We are reachable every day. For help with an order, account, or anything else:</p>
         <ul className="mt-4 space-y-2.5 text-mut">
           <li><a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 hover:text-white transition"><Mail className="w-4 h-4 text-ac" /> {EMAIL}</a></li>
-          <li><a href={SUPPORT} className="inline-flex items-center gap-2 hover:text-white transition"><MessageCircle className="w-4 h-4 text-ac" /> Support on Telegram — @revuas</a></li>
-          <li><a href={CHANNEL} className="inline-flex items-center gap-2 hover:text-white transition"><Megaphone className="w-4 h-4 text-ac" /> Updates — @numberhubofficial</a></li>
-          <li><a href={BOT} className="inline-flex items-center gap-2 hover:text-white transition"><Bot className="w-4 h-4 text-ac" /> The bot — @TheNumberHubBot</a></li>
+          <li><a href={SUPPORT} className="inline-flex items-center gap-2 hover:text-white transition"><MessageCircle className="w-4 h-4 text-ac" /> Support on Telegram — {SUPPORT_HANDLE}</a></li>
+          <li><a href={CHANNEL} className="inline-flex items-center gap-2 hover:text-white transition"><Megaphone className="w-4 h-4 text-ac" /> Updates — {CHANNEL_HANDLE}</a></li>
+          <li><a href={BOT} className="inline-flex items-center gap-2 hover:text-white transition"><Bot className="w-4 h-4 text-ac" /> The bot — {BOT_HANDLE}</a></li>
         </ul>
 
         <div className="mt-12">

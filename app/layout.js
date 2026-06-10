@@ -6,7 +6,7 @@ import CookieConsent from './_components/cookie-consent';
 const SITE = 'https://numberhub.io';
 const TITLE = 'NumberHub — Virtual Numbers for OTP Verification & Travel eSIM';
 const DESC =
-  'Buy virtual phone numbers to receive SMS/OTP verification codes for 800+ apps across 190+ countries, rent numbers, and get travel eSIM data for 219 destinations. Charged only when your code arrives.';
+  'Receive SMS online for 800+ apps in 190+ countries — OTP numbers, rentals, email OTPs and travel eSIM data. No code, no charge.';
 
 export const metadata = {
   metadataBase: new URL(SITE),
@@ -18,6 +18,7 @@ export const metadata = {
     'virtual phone number', 'OTP verification', 'receive SMS online', 'temporary phone number',
     'SMS verification service', 'buy virtual number', 'Telegram number', 'WhatsApp OTP',
     'travel eSIM', 'eSIM data plan', 'crypto payment', 'one time password', 'number rental',
+    'email OTP', 'temporary email for verification', 'rent a phone number',
   ],
   authors: [{ name: 'NumberHub' }],
   creator: 'NumberHub',
@@ -67,12 +68,8 @@ const ld = [
     '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#website`,
     name: 'NumberHub', url: SITE, description: DESC, publisher: { '@id': `${SITE}/#org` }, inLanguage: 'en',
   },
-  {
-    '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE}/#service`,
-    name: 'Virtual numbers & travel eSIM', serviceType: 'OTP / SMS verification numbers and travel data eSIM',
-    provider: { '@id': `${SITE}/#org` }, areaServed: 'Worldwide',
-    offers: { '@type': 'Offer', priceCurrency: 'USD', price: '0.20', availability: 'https://schema.org/InStock', url: 'https://t.me/TheNumberHubBot' },
-  },
+  // Service schema lives on the homepage (app/page.js) — emitting it from the
+  // layout put Offer markup on legal/cookie pages where it doesn't belong.
 ];
 
 export default function RootLayout({ children }) {

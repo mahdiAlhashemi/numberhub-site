@@ -29,7 +29,8 @@ export function Breadcrumb({ items }) {
 export function Logo({ href = '/' }) {
   return (
     <a href={href} className="flex items-center gap-2.5 font-semibold text-lg tracking-tight text-white">
-      <img src="/logo.png" alt="NumberHub logo" width="34" height="34" className="rounded-lg" />
+      {/* alt="" — the adjacent brand text names the link; 96px asset (~9KB, crisp at 34px on 2-3x screens) */}
+      <img src="/logo-96.png" alt="" width="34" height="34" className="rounded-lg" />
       <span className="text-ac">{BRAND}</span>
     </a>
   );
@@ -60,7 +61,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Logo />
-          <p className="mt-4 max-w-sm text-sm text-mut leading-relaxed">Virtual numbers for OTP verification, number rentals, and travel eSIM data — operated via Telegram.</p>
+          <p className="mt-4 max-w-sm text-sm text-mut leading-relaxed">Virtual numbers for OTP verification, number rentals, email OTPs, and travel eSIM data — operated via Telegram.</p>
         </div>
         <div>
           <div className="text-sm font-semibold mb-3 text-white">Product</div>

@@ -1,12 +1,13 @@
 import { SubHeader, SiteFooter, Breadcrumb } from '../_components/chrome';
 import { BRAND, EMAIL, SUPPORT, CHANNEL, BOT } from '../site-config';
 import { Mail, MessageCircle, Megaphone, Bot, Clock, ArrowRight } from 'lucide-react';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Contact & Support',
   description: 'Contact NumberHub support by email or Telegram. We aim to respond within 24 hours, usually much sooner.',
-  alternates: { canonical: '/contact/' },
-};
+  path: '/contact/',
+});
 
 const channels = [
   [Mail, 'Email', 'info@numberhub.io', `mailto:${EMAIL}`, 'Best for account, billing, and compliance enquiries.'],

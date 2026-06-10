@@ -21,7 +21,7 @@ export default function CookieConsent() {
 
   return (
     <div
-      role="dialog"
+      role="region"
       aria-label="Cookie consent"
       className="fixed bottom-4 inset-x-4 z-[60] mx-auto max-w-2xl rounded-xl border border-bd2 bg-card2/95 backdrop-blur p-4 shadow-2xl sm:flex sm:items-center sm:gap-4"
     >

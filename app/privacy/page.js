@@ -1,11 +1,12 @@
 import { LegalPage } from '../_components/chrome';
 import { BRAND, OPERATOR, JURISDICTION, EMAIL, SUPPORT } from '../site-config';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Privacy Policy',
   description: 'How NumberHub collects, uses, retains, and protects your data — and your rights. Minimal data, no ID documents for ordinary use, SMS codes deleted after delivery.',
-  alternates: { canonical: '/privacy/' },
-};
+  path: '/privacy/',
+});
 
 export default function Privacy() {
   return (

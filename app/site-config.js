@@ -4,18 +4,24 @@ export const BOT = 'https://t.me/TheNumberHubBot';
 export const SUPPORT = 'https://t.me/revuas';
 export const CHANNEL = 'https://t.me/numberhubofficial';
 export const EMAIL = 'info@numberhub.io';
+// Display handles — rendered text for the links above (define each exactly once).
+export const BOT_HANDLE = '@TheNumberHubBot';
+export const SUPPORT_HANDLE = '@revuas';
+export const CHANNEL_HANDLE = '@numberhubofficial';
 
 // Legal identity — operated by an independent sole operator under the NumberHub brand.
 export const BRAND = 'NumberHub';
-export const OPERATOR = 'NumberHub, an independent service operated by a sole operator';
-// Governing law / operating jurisdiction. TODO: replace with the confirmed country.
-export const JURISDICTION = '[Your country]';
-export const EFFECTIVE = '6 June 2026';
+export const OPERATOR = 'an independent service operated by a sole operator';
+// Governing law / operating jurisdiction. TODO: swap in the confirmed country
+// when decided — until then the legal pages use this generic-but-valid wording.
+export const JURISDICTION = "the operator's country of residence";
+export const EFFECTIVE = '10 June 2026';
 
 export const PRODUCT_LINKS = [
   ['/numbers/', 'OTP numbers'],
-  ['/#products', 'Number rentals'],
-  ['/#products', 'eSIM data'],
+  ['/rent/', 'Number rentals'],
+  ['/esim/', 'Travel eSIM data'],
+  ['/email/', 'Email OTP'],
   ['/pricing/', 'Pricing'],
   ['/faq/', 'FAQ'],
 ];

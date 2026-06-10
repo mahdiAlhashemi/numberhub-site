@@ -2,11 +2,16 @@ import { SubHeader, SiteFooter } from './_components/chrome';
 import { BOT } from './site-config';
 import { ArrowRight, Home } from 'lucide-react';
 
+export const metadata = {
+  title: 'Page not found',
+  robots: { index: false, follow: false },
+};
+
 export default function NotFound() {
   return (
     <>
       <SubHeader />
-      <main className="mx-auto max-w-2xl px-5 py-28 text-center">
+      <main id="main" className="mx-auto max-w-2xl px-5 py-28 text-center">
         <div className="text-6xl sm:text-7xl font-semibold tracking-tight text-ac">404</div>
         <h1 className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight text-white">This page wandered off</h1>
         <p className="mt-3 text-mut leading-relaxed">The link may be broken or the page moved. Let's get you back.</p>

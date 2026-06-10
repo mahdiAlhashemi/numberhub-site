@@ -1,11 +1,12 @@
 import { LegalPage } from '../_components/chrome';
 import { BRAND, EMAIL, SUPPORT } from '../site-config';
+import { pageMeta } from '../_lib/meta';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Acceptable Use Policy',
   description: 'Prohibited uses of NumberHub and our anti-fraud, anti-abuse, and AML risk controls. Fraud, spam, and unlawful use are not allowed.',
-  alternates: { canonical: '/acceptable-use/' },
-};
+  path: '/acceptable-use/',
+});
 
 export default function AcceptableUse() {
   return (
